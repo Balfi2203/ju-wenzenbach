@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mitglied werden - JU Wenzenbach</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blau: #122d4b;
+      --gruen: #00164c;
+      --weiss: #FFFFFF;
+      --footer-bg: #2c2c2c;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--weiss);
+      color: #111;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('JU Hintergrund.png') no-repeat center center/cover;
+      z-index: -1;
+      opacity: 0.25;
+    }
+
+    header {
+      background: linear-gradient(to right, #00164c, #a1bf2f);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    nav a.active, nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .hero {
+      background: transparent;
+      color: var(--weiss);
+      text-align: center;
+      padding: 100px 20px 50px;
+    }
+
+    .hero h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .btn-download {
+      background-color: var(--gruen);
+      color: var(--dunkelgrau);
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s;
+      margin-top: 60px;
+      display: inline-block;
+    }
+
+    .btn-download:hover {
+      transform: scale(1.05);
+    }
+
+    .vorteile {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 20px 100px;
+      text-align: center;
+      background: transparent;
+    }
+
+    .vorteile-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      flex: 1 1 200px;
+    }
+
+    .vorteile-card i {
+      font-size: 2rem;
+      color: var(--blau);
+      margin-bottom: 10px;
+    }
+
+    .formular-hinweis {
+      margin: 40px auto;
+      padding: 25px;
+      max-width: 650px;
+      background-color: var(--weiss);
+      color: var(--dunkelgrau);
+      border-left: 6px solid var(--blau);
+      border-radius: 6px;
+      box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .formular-hinweis a {
+      color: var(--blau);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .formular-hinweis a:hover {
+      text-decoration: underline;
+    }
+
+    .gruppe {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: var(--weiss);
+    }
+
+    .gruppe img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      margin-top: 20px;
+    }
+      footer {
+      background-color: var(--footer-bg);
+      color: var(--weiss);
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer a {
+      color: #a1bf2f;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body style="background: url('JU%20Hintergrund.png') center top / cover no-repeat fixed; min-height: 100vh; display: flex; flex-direction: column;">
+
+<header>
+  <div class="logo">
+    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
+  </div>
+  <nav>
+    <a href="juwenzenbach.html">Start</a>
+    <a href="ueberuns.html">Über uns</a>
+    <a href="#">News</a>
+    <a href="veranstaltungen.html">Veranstaltungen</a>
+    <a href="mitglied_werden.html" class="active">Mitglied werden</a>
+    <a href="Kontakt.html">Kontakt</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Werde Mitglied!</h2>
+  <p>Engagiere dich und gestalte mit uns die Zukunft!</p>
+  <a href="https://www.ju-bayern.de/med/38111-mitgliedsantrag-dina4-2025.pdf" class="btn-download" target="_blank">Mitgliedsantrag</a>
+</section>
+
+<section class="vorteile">
+  <div class="vorteile-card">
+    <i class="fa-solid fa-handshake"></i>
+    <p>Politische Mitgestaltung vor Ort</p>
+  </div>
+  <div class="vorteile-card">
+    <i class="fa-solid fa-calendar-alt"></i>
+    <p>Exklusive Events und Ausflüge</p>
+  </div>
+  <div class="vorteile-card">
+    <i class="fa-solid fa-users"></i>
+    <p>Wertvolle Freundschaften und Kontakte</p>
+  </div>
+  <div class="vorteile-card">
+    <i class="fa-solid fa-chart-line"></i>
+    <p>Persönliche Entwicklungsmöglichkeiten</p>
+  </div>
+</section>
+
+<div class="formular-hinweis">
+  <i class="fa-solid fa-paper-plane" style="font-size:2rem; margin-bottom:10px;"></i>
+  <p style="font-size:1.1rem;">
+    Bitte sende das ausgefüllte Formular an die Adresse auf dem Mitgliedsantrag.<br>
+    Gerne kannst du ihn auch an <strong><a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a></strong> schicken<br>
+    oder an uns per <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank">Instagram</a>.
+  </p>
+</div>
+
+<section class="gruppe">
+  <h2>Das sind wir!</h2>
+  <img src="Gruppenfoto%20JU%20-%20Kopie.JPG" alt="Gruppenfoto JU Wenzenbach">
+</section>
+
+<footer style="margin-top: auto;">
+  <p>&copy; 2025 Junge Union Wenzenbach</p>
+  <p>93173 Wenzenbach | <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a></p>
+</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const footer = document.querySelector("footer");
+    if (footer) {
+      footer.style.marginTop = "auto";
+    }
+  });
+</script>
+
+</body>
+</html>
+

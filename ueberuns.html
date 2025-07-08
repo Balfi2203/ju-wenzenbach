@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JU Wenzenbach – Über uns</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .hero img {
+      max-width: 220px;
+      margin-bottom: 20px;
+      height: auto;
+    }
+
+    :root {
+      --blau: #00164c;
+      --gruen: #a1bf2f;
+      --weiss: #ffffff;
+      --footer-bg: #2c2c2c;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: url('JU Hintergrund.png') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--weiss);
+    }
+
+    header {
+      background: linear-gradient(to right, var(--blau), var(--gruen));
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: var(--weiss);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 1.1rem;
+    }
+
+    .about {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about h3 {
+      text-transform: uppercase;
+      color: #ccc;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
+    .about p {
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .group-photo {
+      position: relative;
+      text-align: center;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      max-width: 80%;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .overlay-text h3 {
+      text-transform: uppercase;
+      color: #ccc;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .overlay-text h2 {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
+    .overlay-text p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .about.under-photo {
+      max-width: none;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 12px 28px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--weiss);
+      background-color: var(--gruen);
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #91ab2c;
+    }
+      .team-list {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .member {
+      background-color: #ffffff;
+      border-radius: 20px;
+      color: #000;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      gap: 20px;
+    }
+
+    .member img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--gruen);
+    }
+
+    .member .info h3 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--blau);
+    }
+
+    .member .info p {
+      margin: 5px 0;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
+    </div>
+    <nav>
+      <a href="ju-startseite.html">Start</a>
+      <a href="ueberuns.html">Über uns</a>
+      <a href="#">News</a>
+      <a href="veranstaltungen.html">Veranstaltungen</a>
+      <a href="mitgliedwerden.html">Mitglied werden</a>
+      <a href="Kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="group-photo">
+    <div class="hero">
+      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
+      <h2>Gemeinsam für eine starke Jugend</h2>
+      <p>Engagement – Gemeinschaft – Zukunft</p>
+      <a href="mitgliedwerden.html" class="cta-button">Werde Mitglied</a>
+    </div>
+    <img src="Gruppenfoto JU - Kopie.JPG" alt="Gruppenfoto JU" style="width: 100%; max-width: 100%; height: auto; filter: brightness(50%); border-radius: 20px;">
+  </section>
+
+  <section class="about under-photo">
+    <h3>Über uns</h3>
+    <h2>Wir bringen Zukunft in die Gemeinde Wenzenbach</h2>
+    <p>
+      Die Junge Union Wenzenbach ist eine dynamische und engagierte Gemeinschaft junger Menschen, die sich aktiv für die politischen und sozialen Belange unserer Gemeinde einsetzt.
+      Wir fördern den Dialog zwischen Jugend und Politik und bieten eine Plattform für kreative Ideen und innovative Projekte.
+      Unser Ziel ist es, die Interessen der jungen Generation zu vertreten und einen positiven Beitrag zur Zukunftsgestaltung in Wenzenbach zu leisten.
+      Gemeinsam arbeiten wir an einer lebenswerten und zukunftsorientierten Heimat. Bei regelmäßigen Stammtischen tauschen wir uns über aktuelle Themen aus.
+      Für einen starken Zusammenhalt sorgen wir durch Ausflüge zu Veranstaltungen wie beispielsweise der Dult, Lasertag oder zu Fußballspielen in der Allianz-Arena.
+    </p>
+  </section>
+
+  <section class="team-list">
+    <div class="member">
+      <img src="Einzelbilder/Patrick Schön.JPG" alt="Patrick Schön">
+      <div class="info">
+        <h3>Patrick Schön</h3>
+        <p><strong>Vorsitzender</strong></p>
+        <p>30 Jahre</p>
+        <p>Industriekaufmann</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Leopold Fischer.JPG" alt="Leopold Fischer">
+      <div class="info">
+        <h3>Leopold Fischer</h3>
+        <p><strong>Stellvertretender Vorsitzender</strong></p>
+        <p>22 Jahre</p>
+        <p>Elektroniker für Energie- und Gebäudetechnik</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Screenshot 2025-04-13 201601.png" alt="Felix Priller">
+      <div class="info">
+        <h3>Felix Priller</h3>
+        <p><strong>Kassier</strong></p>
+        <p>23 Jahre</p>
+        <p>Finanzbeamter</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Alexander Graf von Ballestrem.JPG" alt="Alexander Graf von Ballestrem">
+      <div class="info">
+        <h3>Alexander Graf von Ballestrem</h3>
+        <p><strong>Digitalbeauftragter</strong></p>
+        <p>21 Jahre</p>
+        <p>Student</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Dominik Heinrich.JPG" alt="Dominik Heinrich">
+      <div class="info">
+        <h3>Dominik Heinrich</h3>
+        <p><strong>Schriftführer</strong></p>
+        <p>32 Jahre</p>
+        <p>MR</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Screenshot 2025-04-13 201601.png" alt="Christian Auburger">
+      <div class="info">
+        <h3>Christian Auburger</h3>
+        <p><strong>Beisitzer</strong></p>
+        <p>33 Jahre</p>
+        <p>Kfz-Meister</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Max-Georg Fischer.JPG" alt="Max-Georg Fischer">
+      <div class="info">
+        <h3>Max-Georg Fischer</h3>
+        <p><strong>Beisitzer</strong></p>
+        <p>17 Jahre</p>
+        <p>Bäcker Azubi</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Igl Constantin.JPG" alt="Constantin Igl">
+      <div class="info">
+        <h3>Constantin Igl</h3>
+        <p><strong>Beisitzer</strong></p>
+        <p>20 Jahre</p>
+        <p>Student</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Leon Schunda.JPG" alt="Leon Schunda">
+      <div class="info">
+        <h3>Leon Schunda</h3>
+        <p><strong>Kassenprüfer</strong></p>
+        <p>20 Jahre</p>
+        <p>Student</p>
+      </div>
+    </div>
+    <div class="member">
+      <img src="Einzelbilder/Georg Orth.JPG" alt="Georg Orth">
+      <div class="info">
+        <h3>Georg Orth</h3>
+        <p><strong>Kassenprüfer</strong></p>
+        <p>21 Jahre</p>
+        <p>Schüler</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background-color: #2c2c2c; color: white; text-align: center; padding: 40px 20px; margin-top: 60px;">
+  <p style="margin: 8px 0;">&copy; 2025 Junge Union Wenzenbach</p>
+  <p style="margin: 8px 0;">
+    93173 Wenzenbach | <a href="mailto:juwenzenbach@gmail.com" style="color: #a1bf2f; text-decoration: none;">juwenzenbach@gmail.com</a>
+  </p>
+</footer>
+</body>
+</html>

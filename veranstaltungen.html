@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veranstaltungen | JU Wenzenbach</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+  --blau: #122d4b;
+  --gruen: #00164c;
+  --weiss: #FFFFFF;
+  --footer-bg: #2c2c2c;
+}
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--weiss);
+      color: #111;
+    }
+
+    body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('JU Hintergrund.png') no-repeat center center/cover;
+  z-index: -1;
+  opacity: 0.25;
+}
+
+    header {
+      background: linear-gradient(to right, #00164c, #a1bf2f);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+    nav a.active, nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+    .hero {
+      background: linear-gradient(135deg, #00164c, #a1bf2f);
+      color: var(--weiss);
+      text-align: center;
+      padding: 100px 20px 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--blau);
+    }
+
+    .veranstaltung {
+      background-color: rgba(0, 128, 200, 0.1);
+      color: #222;
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 800px;
+      border-left: 5px solid var(--blau);
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(3px);
+    }
+
+    .veranstaltung h3 {
+      color: var(--blau);
+    }
+
+    .veranstaltung img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .calendar div {
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #f9f9f9;
+  color: var(--gruen);
+}
+
+.calendar div:nth-child(n+8):nth-child(-n+14),
+.calendar div:nth-child(n+22):nth-child(-n+28),
+.calendar div:nth-child(n+36):nth-child(-n+42) {
+  background-color: #f0f0f0;
+}
+
+    .calendar .header {
+      font-weight: bold;
+      background-color: var(--blau);
+      color: var(--weiss);
+    }
+
+    .calendar .day {
+      background-color: #e7f0fa;
+    }
+
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border: 2px solid var(--blau);
+      border-radius: 12px;
+      padding: 20px 30px;
+      z-index: 9999;
+      display: none;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--weiss);
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer a {
+  color: #a1bf2f;
+  text-decoration: none;
+}
+
+    footer p {
+      margin: 8px 0;
+    }
+  
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
+    </div>
+    <nav>
+      <a href="juwenzenbach.html">Start</a>
+      <a href="ueberuns.html">Über uns</a>
+      <a href="#">News</a>
+      <a href="#" class="active">Veranstaltungen</a>
+      <a href="mitgliedwerden.html">Mitglied werden</a>
+      <a href="Kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Unsere Veranstaltungen</h1>
+    <p>Termine – Rückblicke – Highlights</p>
+  </section>
+
+  <div class="veranstaltung">
+    <h3><i class="fas fa-beer"></i> Stammtisch der JU Wenzenbach</h3>
+    <p><strong>Datum:</strong> 30. April 2025, 19:00 Uhr<br><strong>Ort:</strong> Gasthaus Stuber, Fußenberg</p>
+    <p>Die JU Wenzenbach lädt zum Stammtisch ein! Wir freuen uns auf einen regen Austausch zu politischen Themen – bei gutem Essen und Getränken!</p>
+  </div>
+  <div class="veranstaltung">
+    <h3><i class="fas fa-hiking"></i> Wanderung & Brauereiführung – JU Regensburg-Land</h3>
+    <p><strong>Datum:</strong> 03. Mai 2025, 09:15 Uhr<br><strong>Ort:</strong> Parkplatz in Kelheim</p>
+    <p>Liebe Mitglieder, liebe Freunde der Jungen Union, wir laden euch herzlich zu einem besonderen Ausflug ein!</p>
+    <p>Am 03.05.25 erwartet euch eine Wanderung durch das wunderschöne Naturschutzgebiet rund um den Donaudurchbruch mit spannenden Einblicken in bayerische Kultur, Geschichte – und natürlich Bier!</p>
+  </div>
+    
+    
+  </section>
+
+  <section class="section">
+  <h2>Vergangene Veranstaltungen</h2>
+  <div class="veranstaltung">
+  <h3>Neuwahlen der JU Wenzenbach</h3>
+  <p><strong>Datum:</strong> 03. April 2025<br><strong>Ort:</strong> Vereinsheim Wenzenbach</p>
+  <p>Am Donnerstag, den 03.04.2025 hat die JU Wenzenbach gewählt.</p>
+  <p>Zu Beginn der Jahreshauptversammlung wurde der Bericht des Vorstandes stellvertretend durch Leopold Fischer für den ehemaligen Vorsitzenden verlesen.
+  Anschließend wurde Patrick Schön zum neuen Vorsitzenden gewählt und Leopold Fischer zu seinem Stellvertreter.</p>
+  <p>Der neue Vorsitzende freut sich auf eine gute Zusammenarbeit mit dem FU- und den CSU-Ortsverbänden der Gemeinde Wenzenbach.
+  In seiner ersten Rede kündigte der neu gewählte Ortsvorsitzende an, dass er sich auf einen intensiven und aktiven Kommunalwahlkampf 2026 freut.</p>
+  <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+    <img src="Gruppenfoto JU.JPG" alt="Neuwahlen JU Wenzenbach 2025" style="width: 300px; border-radius: 8px;" />
+  </div>
+</div>
+  </div>
+
+  <div class="veranstaltung">
+  <h3>JU Frühshoppen mit Patrick Grossmann</h3>
+  <p><strong>Datum:</strong> 16. März 2025<br><strong>Ort:</strong> Thalmassing</p>
+  <p>Die JU Thalmassing lud uns gemeinsam mit dem Landtagsabgeordneten Patrick Grossmann zum politischen Frühshoppen ein.</p>
+  <p>Die Gelegenheit ließen wir uns natürlich nicht nehmen und tauschten uns über die vergangene Bundestagswahl und andere politische Themen aus. Wir danken der JU Thalmassing nochmals vielmals für die Einladung!</p>
+  <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+    <img src="Frühshoppen mit Patrick 1.PNG" alt="Frühshoppen Gesprächsrunde" style="width: 300px; border-radius: 8px;" />
+    <img src="Frühshoppen mit Patrick 2.PNG" alt="Gruppenfoto Frühshoppen mit Patrick Grossmann" style="width: 300px; border-radius: 8px;" />
+  </div>
+</div>
+  </div>
+
+  <div class="veranstaltung">
+  <h3>Infostand der CSU und JU Wenzenbach</h3>
+  <p><strong>Datum:</strong> 15. Februar 2025<br><strong>Ort:</strong> Wenzenbach</p>
+  <p>Gemeinsam mit der CSU Wenzenbach und unserem Bundestagsabgeordneten Peter Aumer veranstalteten wir einen Infostand zur Bundestagswahl am 23.02.2025.</p>
+  <p>Bei diesem hörten wir uns die Wünsche und Sorgen unserer Mitbürger an und versuchten diese davon zu überzeugen, beide Stimmen der CSU zu geben.</p>
+  <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+    <img src="Infostand BTW25 1.PNG" alt="Selfie beim Infostand mit Peter Aumer" style="width: 300px; border-radius: 8px;" />
+    <img src="Infostand BTW25 2.PNG" alt="Teamfoto Infostand Bundestagswahl 2025" style="width: 300px; border-radius: 8px;" />
+  </div>
+</div>
+  </div>
+    
+  </section>
+
+  <section class="section">
+    <h2>Kalender</h2>
+    <div style="margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 20px;">
+      <button onclick="changeMonth(-1)" style="padding: 10px 20px; background-color: var(--blau); color: var(--weiss); border: none; border-radius: 8px; cursor: pointer;">&laquo;</button>
+      <h3 id="kalender-monat">April 2025</h3>
+      <button onclick="changeMonth(1)" style="padding: 10px 20px; background-color: var(--blau); color: var(--weiss); border: none; border-radius: 8px; cursor: pointer;">&raquo;</button>
+    </div>
+    <div class="calendar" id="kalender-inhalt"></div>
+  </section>
+
+  <div id="popup">Veranstaltung wurde in den Kalender übernommen! ✅</div>
+
+  <footer>
+    <p>&copy; 2025 Junge Union Wenzenbach</p>
+    <p>93173 Wenzenbach | <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a></p>
+  </footer>
+
+  <script>
+    const veranstaltungen = {
+  '2025-04-30': { title: 'Stammtisch', ort: 'Gasthaus Stuber, Fußenberg', date: '2025-04-30' },
+  '2025-05-03': { title: 'Wanderung & Brauereiführung', ort: 'Kelheim', date: '2025-05-03' }
+};
+
+    let aktuellesDatum = new Date(2025, 3);
+
+    function renderKalender(monatJahr) {
+      const kalender = document.getElementById('kalender-inhalt');
+      const monatName = monatJahr.toLocaleString('de-DE', { month: 'long', year: 'numeric' });
+      document.getElementById('kalender-monat').innerText = monatName.charAt(0).toUpperCase() + monatName.slice(1);
+
+      kalender.innerHTML = '';
+
+      const wochentage = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+      wochentage.forEach(tag => {
+        const el = document.createElement('div');
+        el.className = 'header';
+        el.innerText = tag;
+        kalender.appendChild(el);
+      });
+
+      const jahr = monatJahr.getFullYear();
+      const monat = monatJahr.getMonth();
+      const erster = new Date(jahr, monat, 1);
+      const letzter = new Date(jahr, monat + 1, 0);
+      const startTag = (erster.getDay() + 6) % 7;
+
+      for (let i = 0; i < startTag; i++) {
+        kalender.appendChild(document.createElement('div'));
+      }
+
+      for (let tag = 1; tag <= letzter.getDate(); tag++) {
+        const datum = `${jahr}-${(monat + 1).toString().padStart(2, '0')}-${tag.toString().padStart(2, '0')}`;
+        const el = document.createElement('div');
+        if (veranstaltungen[datum]) {
+        el.className = 'day';
+        el.style.backgroundColor = 'var(--gruen)';
+        el.style.fontWeight = 'bold';
+        el.style.color = '#a1bf2f';
+        el.title = `${veranstaltungen[datum].title} - ${veranstaltungen[datum].ort}`;
+        el.innerHTML = `${tag}<br><small>${veranstaltungen[datum].title}</small>`;
+        el.style.cursor = 'pointer';
+        el.onclick = () => addToCalendar(veranstaltungen[datum]);
+        } else {
+          el.innerText = tag;
+        }
+        kalender.appendChild(el);
+      }
+    }
+
+    function changeMonth(delta) {
+      aktuellesDatum.setMonth(aktuellesDatum.getMonth() + delta);
+      renderKalender(aktuellesDatum);
+    }
+
+    function showPopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2500);
+    }
+
+    function addToCalendar(event) {
+      const start = new Date(event.date);
+      const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+      const startStr = start.toISOString().replace(/[-:]|\.\d{3}/g, '');
+      const endStr = end.toISOString().replace(/[-:]|\.\d{3}/g, '');
+      const title = encodeURIComponent(event.title);
+      const location = encodeURIComponent(event.ort);
+      const url = `data:text/calendar;charset=utf8,BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${title}\nLOCATION:${location}\nDTSTART:${startStr}\nDTEND:${endStr}\nEND:VEVENT\nEND:VCALENDAR`;
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${event.title.replace(/\s+/g, '_')}.ics`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      showPopup();
+    }
+
+    renderKalender(aktuellesDatum);
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

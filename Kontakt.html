@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt | JU Wenzenbach</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --blau: #00164c;
+      --gruen: #a1bf2f;
+      --weiss: #FFFFFF;
+      --hellblau: #e6f4fb;
+      --dunkel: #2f2f2f;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--weiss);
+      color: black;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--blau), var(--gruen));
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--weiss);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--gruen);
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .kontakt-section {
+      background: linear-gradient(135deg, var(--gruen), var(--blau));
+      color: var(--weiss);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .kontakt-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .kontakt-section p.subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #d6eaff;
+    }
+
+    form {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      background-color: var(--hellblau);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    form textarea {
+      grid-column: span 2;
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    input, textarea {
+      padding: 15px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--blau);
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 15px;
+      background-color: var(--gruen);
+      color: var(--blau);
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c4dc2b;
+    }
+
+    .instagram-kontakt {
+      margin-top: 50px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .instagram-kontakt p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    .social-icons a {
+      color: var(--weiss);
+      font-size: 2.5rem;
+      text-decoration: none;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+      color: var(--gruen);
+    }
+
+    .instagram-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 25px;
+      background-color: var(--gruen);
+      color: var(--blau);
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .instagram-button:hover {
+      background-color: #c4dc2b;
+    }
+
+    footer {
+      background-color: var(--dunkel);
+      color: var(--weiss);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--gruen);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+      button {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo Weiß">
+    </div>
+    <nav>
+      <a href="juwenzenbach.html" class="nav-link">Start</a>
+      <a href="ueberuns.html" class="nav-link">Über uns</a>
+      <a href="#" class="nav-link">News</a>
+      <a href="veranstaltungen.html" class="nav-link">Veranstaltungen</a>
+      <a href="mitgliedwerden.html" class="nav-link">Mitglied werden</a>
+      <a href="Kontakt.html" class="nav-link active">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="kontakt-section">
+    <h2>Kontaktiere uns</h2>
+    <p class="subtitle">Wir freuen uns über deine Nachricht – ganz egal ob Fragen, Anregungen oder Lob!</p>
+    <form action="mailto:juwenzenbach@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Dein Name" required>
+      <input type="email" name="Email" placeholder="Deine E-Mail-Adresse" required>
+      <textarea name="Nachricht" placeholder="Deine Nachricht an uns..." required></textarea>
+      <button type="submit">Absenden</button>
+    </form>
+
+    <div class="instagram-kontakt">
+      <p>Oder schreib uns direkt auf Instagram</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <a class="instagram-button" href="https://www.instagram.com/ju_wenzenbach/" target="_blank">Instagram öffnen</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Junge Union Wenzenbach</p>
+    <p>93173 Wenzenbach | <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a></p>
+  </footer>
+</body>
+</html>
