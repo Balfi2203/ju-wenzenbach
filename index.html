@@ -21,12 +21,13 @@
     }
 
     header {
-      background: linear-gradient(to right, #00164c, #a1bf2f);
-      padding: 20px 40px;
+      background: linear-gradient(to right, var(--blau), var(--gruen));
+      padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
     }
 
     .logo img {
@@ -50,6 +51,38 @@
     nav a:hover {
       background-color: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(4px);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      color: var(--weiss);
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background-color: rgba(0,0,0,0.8);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        z-index: 99;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
     }
 
     .hero {
@@ -171,7 +204,8 @@
     <div class="logo">
       <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
     </div>
-    <nav>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    <nav id="main-nav">
       <a href="index.html">Start</a>
       <a href="ueberuns.html">Über uns</a>
       <a href="#">News</a>
@@ -217,8 +251,15 @@
     </p>
   </footer>
 
+  <script>
+    function toggleMenu() {
+      document.getElementById("main-nav").classList.toggle("active");
+    }
+  </script>
+
 </body>
 </html>
+
 
 
 
