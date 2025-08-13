@@ -21,6 +21,10 @@
       color: black;
     }
 
+    body.no-scroll {
+      overflow: hidden;
+    }
+
     header {
       background: linear-gradient(90deg, var(--blau), var(--gruen));
       padding: 10px 20px;
@@ -255,7 +259,7 @@
       <a href="mitgliedwerden.html" class="nav-link">Mitglied werden</a>
       <a href="Kontakt.html" class="nav-link active">Kontakt</a>
     </nav>
-    <button class="menu-toggle" aria-label="Menü öffnen"><i class="fas fa-bars"></i></button>
+    <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false"><i class="fas fa-bars"></i></button>
   </header>
 
   <section class="kontakt-section">
@@ -284,13 +288,7 @@
     <p>93173 Wenzenbach | <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a></p>
   </footer>
 
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  </script>
+  <script src="menu.js"></script>
 
   </body>
   </html>

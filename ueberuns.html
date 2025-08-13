@@ -27,6 +27,10 @@
       color: var(--weiss);
     }
 
+    body.no-scroll {
+      overflow: hidden;
+    }
+
     header {
       background: linear-gradient(to right, var(--blau), var(--gruen));
       padding: 20px 40px;
@@ -252,7 +256,7 @@
       <a href="mitgliedwerden.html">Mitglied werden</a>
       <a href="Kontakt.html">Kontakt</a>
     </nav>
-    <button class="menu-toggle" aria-label="Menü öffnen"><i class="fas fa-bars"></i></button>
+    <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false"><i class="fas fa-bars"></i></button>
   </header>
 
   <section class="group-photo">
@@ -377,13 +381,7 @@
   </p>
   </footer>
 
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  </script>
+  <script src="menu.js"></script>
 
   </body>
   </html>
