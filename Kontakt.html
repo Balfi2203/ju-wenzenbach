@@ -28,6 +28,7 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      position: relative;
     }
 
     .logo img {
@@ -39,6 +40,15 @@
       gap: 15px;
       flex-wrap: wrap;
       align-items: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--weiss);
+      font-size: 1.8rem;
+      cursor: pointer;
     }
 
     nav a {
@@ -57,6 +67,37 @@
 
     nav a:hover {
       background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: linear-gradient(90deg, var(--blau), var(--gruen));
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px;
+      }
+
+      nav a {
+        padding: 10px 20px;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
     }
 
     .kontakt-section {
@@ -214,6 +255,7 @@
       <a href="mitgliedwerden.html" class="nav-link">Mitglied werden</a>
       <a href="Kontakt.html" class="nav-link active">Kontakt</a>
     </nav>
+    <button class="menu-toggle" aria-label="Menü öffnen"><i class="fas fa-bars"></i></button>
   </header>
 
   <section class="kontakt-section">
@@ -241,5 +283,14 @@
     <p>&copy; 2025 Junge Union Wenzenbach</p>
     <p>93173 Wenzenbach | <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a></p>
   </footer>
-</body>
-</html>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
+
+  </body>
+  </html>

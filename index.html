@@ -27,6 +27,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
     }
 
     .logo img {
@@ -36,6 +37,15 @@
     nav {
       display: flex;
       gap: 25px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--weiss);
+      font-size: 1.8rem;
+      cursor: pointer;
     }
 
     nav a {
@@ -50,6 +60,33 @@
     nav a:hover {
       background-color: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(4px);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: linear-gradient(to right, var(--blau), var(--gruen));
+        width: 100%;
+        padding: 10px 0;
+        gap: 15px;
+      }
+
+      nav a {
+        padding: 10px 20px;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
     }
 
     .hero {
@@ -179,6 +216,7 @@
       <a href="mitgliedwerden.html">Mitglied werden</a>
       <a href="Kontakt.html">Kontakt</a>
     </nav>
+    <button class="menu-toggle" aria-label="Menü öffnen"><i class="fas fa-bars"></i></button>
   </header>
 
   <section class="hero">
@@ -216,6 +254,14 @@
       <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
     </p>
   </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 
 </body>
 </html>
