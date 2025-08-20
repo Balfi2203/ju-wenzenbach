@@ -20,6 +20,10 @@
       color: var(--weiss);
     }
 
+    a:focus {
+      outline: none;
+    }
+
     header {
       background: linear-gradient(to right, var(--blau), var(--gruen));
       padding: 20px 40px;
@@ -52,7 +56,6 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Burger Menü */
     .burger {
       display: none;
       cursor: pointer;
@@ -108,6 +111,7 @@
       nav {
         display: none;
       }
+
       .burger {
         display: flex;
       }
@@ -219,81 +223,106 @@
     footer a {
       color: var(--gruen);
       text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     footer p {
       margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    footer .social-icons {
+      margin-top: 12px;
+    }
+
+    footer .social-icons a {
+      color: var(--weiss);
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: transform 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
-    </div>
-    <nav>
-      <a href="index.html">Start</a>
-      <a href="ueberuns.html">Über uns</a>
-      <a href="#">News</a>
-      <a href="veranstaltungen.html">Veranstaltungen</a>
-      <a href="mitgliedwerden.html">Mitglied werden</a>
-      <a href="Kontakt.html">Kontakt</a>
-    </nav>
-    <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
-      <div></div><div></div><div></div>
-    </div>
-  </header>
-
-  <div class="mobile-nav">
-    <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+<header>
+  <div class="logo">
+    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
+  </div>
+  <nav>
     <a href="index.html">Start</a>
     <a href="ueberuns.html">Über uns</a>
     <a href="#">News</a>
     <a href="veranstaltungen.html">Veranstaltungen</a>
     <a href="mitgliedwerden.html">Mitglied werden</a>
     <a href="Kontakt.html">Kontakt</a>
+  </nav>
+  <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
+    <div></div><div></div><div></div>
   </div>
+</header>
 
-  <section class="hero">
-    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
-    <h2>Jung. Engagiert. Zukunftsorientiert.</h2>
-    <p>Gestalte mit uns die Politik in Wenzenbach</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-  </section>
+<div class="mobile-nav">
+  <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+  <a href="index.html">Start</a>
+  <a href="ueberuns.html">Über uns</a>
+  <a href="#">News</a>
+  <a href="veranstaltungen.html">Veranstaltungen</a>
+  <a href="mitgliedwerden.html">Mitglied werden</a>
+  <a href="Kontakt.html">Kontakt</a>
+</div>
 
-  <section class="section">
-    <h2>Werde Teil unserer Bewegung</h2>
-    <p>
-      Wir sind junge Menschen mit Ideen, Energie und Überzeugung. Unsere Mission ist es,
-      gemeinsam die Zukunft Wenzenbachs mitzugestalten – frisch, ehrlich, engagiert.
-      Ob politisch interessiert oder einfach auf der Suche nach Gemeinschaft: Bei uns findest du deinen Platz.
-    </p>
-    <div class="button-row">
-      <a href="mitgliedwerden.html">Jetzt Mitglied werden</a>
-      <a href="Kontakt.html">Fragen? Kontaktiere uns!</a>
-    </div>
-  </section>
+<section class="hero">
+  <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
+  <h2>Jung. Engagiert. Zukunftsorientiert.</h2>
+  <p>Gestalte mit uns die Politik in Wenzenbach</p>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</section>
 
-  <section class="about">
-    <h3>Über uns</h3>
-    <h2>Wir bringen Zukunft in die Gemeinde Wenzenbach</h2>
-    <p>Die Junge Union Wenzenbach ist eine dynamische und engagierte Gemeinschaft junger Menschen, die sich aktiv für die politischen und sozialen Belange unserer Gemeinde einsetzt. Wir fördern den Dialog zwischen Jugend und Politik und bieten eine Plattform für kreative Ideen und innovative Projekte. Unser Ziel ist es, die Interessen der jungen Generation zu vertreten und einen positiven Beitrag zur Zukunftsgestaltung in Wenzenbach zu leisten. Gemeinsam arbeiten wir an einer lebenswerten und zukunftsorientierten Heimat. Bei regelmäßigen Stammtischen tauschen wir uns über aktuelle Themen aus. Für einen starken Zusammenhalt sorgen wir durch Ausflüge zu Veranstaltungen wie beispielsweise der Dult, Lasertag oder zu Fußballspielen in der Allianz-Arena.</p>
-  </section>
+<section class="section">
+  <h2>Werde Teil unserer Bewegung</h2>
+  <p>
+    Wir sind junge Menschen mit Ideen, Energie und Überzeugung. Unsere Mission ist es,
+    gemeinsam die Zukunft Wenzenbachs mitzugestalten – frisch, ehrlich, engagiert.
+    Ob politisch interessiert oder einfach auf der Suche nach Gemeinschaft: Bei uns findest du deinen Platz.
+  </p>
+  <div class="button-row">
+    <a href="mitgliedwerden.html">Jetzt Mitglied werden</a>
+    <a href="Kontakt.html">Fragen? Kontaktiere uns!</a>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Junge Union Wenzenbach</p>
-    <p>93173 Wenzenbach |
-      <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
-    </p>
-  </footer>
+<section class="about">
+  <h3>Über uns</h3>
+  <h2>Wir bringen Zukunft in die Gemeinde Wenzenbach</h2>
+  <p>Die Junge Union Wenzenbach ist eine dynamische und engagierte Gemeinschaft junger Menschen, die sich aktiv für die politischen und sozialen Belange unserer Gemeinde einsetzt. Wir fördern den Dialog zwischen Jugend und Politik und bieten eine Plattform für kreative Ideen und innovative Projekte. Unser Ziel ist es, die Interessen der jungen Generation zu vertreten und einen positiven Beitrag zur Zukunftsgestaltung in Wenzenbach zu leisten. Gemeinsam arbeiten wir an einer lebenswerten und zukunftsorientierten Heimat. Bei regelmäßigen Stammtischen tauschen wir uns über aktuelle Themen aus. Für einen starken Zusammenhalt sorgen wir durch Ausflüge zu Veranstaltungen wie beispielsweise der Dult, Lasertag oder zu Fußballspielen in der Allianz-Arena.</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Junge Union Wenzenbach<br>
+    <a href="impressum.html">Impressum</a> |
+    <a href="datenschutz.html">Datenschutz</a> |
+    <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
+  </p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </div>
+</footer>
 
 </body>
 </html>
-
 
 
 
