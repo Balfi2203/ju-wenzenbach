@@ -22,12 +22,11 @@
 
     header {
       background: linear-gradient(to right, var(--blau), var(--gruen));
-      padding: 20px 30px;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      position: relative;
     }
 
     .logo img {
@@ -53,35 +52,64 @@
       backdrop-filter: blur(4px);
     }
 
-    .menu-toggle {
+    /* Burger Menü */
+    .burger {
       display: none;
-      font-size: 28px;
-      background: none;
-      color: var(--weiss);
-      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100%;
+      width: 250px;
+      background-color: var(--blau);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .close-btn {
+      font-size: 1.5rem;
+      color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
       cursor: pointer;
     }
 
     @media (max-width: 768px) {
       nav {
         display: none;
-        flex-direction: column;
-        gap: 15px;
-        background-color: rgba(0,0,0,0.8);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 20px 0;
-        z-index: 99;
       }
-
-      nav.active {
+      .burger {
         display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
       }
     }
 
@@ -204,8 +232,7 @@
     <div class="logo">
       <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
     </div>
-    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
-    <nav id="main-nav">
+    <nav>
       <a href="index.html">Start</a>
       <a href="ueberuns.html">Über uns</a>
       <a href="#">News</a>
@@ -213,7 +240,20 @@
       <a href="mitgliedwerden.html">Mitglied werden</a>
       <a href="Kontakt.html">Kontakt</a>
     </nav>
+    <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
+      <div></div><div></div><div></div>
+    </div>
   </header>
+
+  <div class="mobile-nav">
+    <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+    <a href="index.html">Start</a>
+    <a href="ueberuns.html">Über uns</a>
+    <a href="#">News</a>
+    <a href="veranstaltungen.html">Veranstaltungen</a>
+    <a href="mitgliedwerden.html">Mitglied werden</a>
+    <a href="Kontakt.html">Kontakt</a>
+  </div>
 
   <section class="hero">
     <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
@@ -250,12 +290,6 @@
       <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
     </p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("main-nav").classList.toggle("active");
-    }
-  </script>
 
 </body>
 </html>
