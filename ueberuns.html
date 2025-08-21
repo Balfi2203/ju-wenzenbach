@@ -2,16 +2,10 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JU Wenzenbach – Über uns</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    .hero img {
-      max-width: 220px;
-      margin-bottom: 20px;
-      height: auto;
-    }
-
     :root {
       --blau: #00164c;
       --gruen: #a1bf2f;
@@ -21,7 +15,7 @@
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: Arial, sans-serif;
       background: url('JU Hintergrund.png') no-repeat center center fixed;
       background-size: cover;
       color: var(--weiss);
@@ -34,7 +28,6 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .logo img {
@@ -50,8 +43,8 @@
       color: var(--weiss);
       text-decoration: none;
       font-weight: bold;
-      padding: 6px 12px;
-      border-radius: 6px;
+      padding: 5px 10px;
+      border-radius: 5px;
       transition: background-color 0.3s ease;
     }
 
@@ -60,9 +53,75 @@
       backdrop-filter: blur(4px);
     }
 
+    .burger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100%;
+      width: 250px;
+      background-color: var(--blau);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .close-btn {
+      font-size: 1.5rem;
+      color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
+
     .hero {
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 80px 20px 40px;
+    }
+
+    .hero img {
+      max-width: 220px;
+      margin-bottom: 20px;
     }
 
     .hero h2 {
@@ -74,80 +133,12 @@
     .hero p {
       text-transform: uppercase;
       letter-spacing: 2px;
-      font-size: 1.1rem;
     }
 
-    .about {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .about h3 {
-      text-transform: uppercase;
-      color: #ccc;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .about h2 {
-      font-size: 2rem;
-      margin: 20px 0;
-    }
-
-    .about p {
-      max-width: 850px;
-      margin: 0 auto;
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-
-    .group-photo {
-      position: relative;
-      text-align: center;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
-
-    .overlay-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--weiss);
-      max-width: 80%;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 15px;
-    }
-
-    .overlay-text h3 {
-      text-transform: uppercase;
-      color: #ccc;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .overlay-text h2 {
-      font-size: 2rem;
-      margin: 20px 0;
-    }
-
-    .overlay-text p {
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-
-    .about.under-photo {
-      max-width: none;
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-
-    .cta-button{
-      display: inline-block; 
-      margin-bottom: 20px; 
-      padding: 12px 28px; 
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
       font-size: 1.2rem;
       font-weight: bold;
       color: var(--weiss);
@@ -161,7 +152,39 @@
     .cta-button:hover {
       background-color: #91ab2c;
     }
-      .team-list {
+
+    .group-photo {
+      text-align: center;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .group-photo img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 20px;
+      filter: brightness(50%);
+    }
+
+    .about {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .team-list {
       max-width: 1000px;
       margin: 60px auto;
       padding: 0 20px;
@@ -200,44 +223,93 @@
       margin: 5px 0;
       font-size: 1.1rem;
     }
+
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--weiss);
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer a {
+      color: var(--gruen);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    footer .social-icons {
+      margin-top: 12px;
+    }
+
+    footer .social-icons a {
+      color: var(--weiss);
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: transform 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
-    </div>
-    <nav>
-      <a href="index.html">Start</a>
-      <a href="ueberuns.html">Über uns</a>
-      <a href="#">News</a>
-      <a href="veranstaltungen.html">Veranstaltungen</a>
-      <a href="mitgliedwerden.html">Mitglied werden</a>
-      <a href="Kontakt.html">Kontakt</a>
-    </nav>
-  </header>
 
-  <section class="group-photo">
-    <div class="hero">
-      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
-      <h2>Gemeinsam für eine starke Jugend</h2>
-      <p>Engagement – Gemeinschaft – Zukunft</p>
-      <a href="mitgliedwerden.html" class="cta-button">Werde Mitglied</a>
-    </div>
-    <img src="Gruppenfoto JU - Kopie.JPG" alt="Gruppenfoto JU" style="width: 100%; max-width: 100%; height: auto; filter: brightness(50%); border-radius: 20px;">
-  </section>
+<header>
+  <div class="logo">
+    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
+  </div>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="ueberuns.html">Über uns</a>
+    <a href="#">News</a>
+    <a href="veranstaltungen.html">Veranstaltungen</a>
+    <a href="mitgliedwerden.html">Mitglied werden</a>
+    <a href="Kontakt.html">Kontakt</a>
+  </nav>
+  <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
+    <div></div><div></div><div></div>
+  </div>
+</header>
 
-  <section class="about under-photo">
-    <h3>Über uns</h3>
-    <h2>Wir bringen Zukunft in die Gemeinde Wenzenbach</h2>
-    <p>
-      Die Junge Union Wenzenbach ist eine dynamische und engagierte Gemeinschaft junger Menschen, die sich aktiv für die politischen und sozialen Belange unserer Gemeinde einsetzt.
-      Wir fördern den Dialog zwischen Jugend und Politik und bieten eine Plattform für kreative Ideen und innovative Projekte.
-      Unser Ziel ist es, die Interessen der jungen Generation zu vertreten und einen positiven Beitrag zur Zukunftsgestaltung in Wenzenbach zu leisten.
-      Gemeinsam arbeiten wir an einer lebenswerten und zukunftsorientierten Heimat. Bei regelmäßigen Stammtischen tauschen wir uns über aktuelle Themen aus.
-      Für einen starken Zusammenhalt sorgen wir durch Ausflüge und Veranstaltungen wie beispielsweise zu Volksfesten, Weihnachtsmärkten, Lasertag oder zu Fußballspielen in der Allianz-Arena.
-    </p>
-  </section>
+<div class="mobile-nav">
+  <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+  <a href="index.html">Start</a>
+  <a href="ueberuns.html">Über uns</a>
+  <a href="#">News</a>
+  <a href="veranstaltungen.html">Veranstaltungen</a>
+  <a href="mitgliedwerden.html">Mitglied werden</a>
+  <a href="Kontakt.html">Kontakt</a>
+</div>
+
+<section class="hero">
+  <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
+  <h2>Gemeinsam für eine starke Jugend</h2>
+  <p>Engagement – Gemeinschaft – Zukunft</p>
+  <a href="mitgliedwerden.html" class="cta-button">Werde Mitglied</a>
+</section>
+
+<section class="group-photo">
+  <img src="Gruppenfoto JU - Kopie.JPG" alt="Gruppenfoto JU">
+</section>
+
+<section class="about">
+  <h2>Wir bringen Zukunft in die Gemeinde Wenzenbach</h2>
+  <p>
+    Die Junge Union Wenzenbach ist eine dynamische und engagierte Gemeinschaft junger Menschen, die sich aktiv für die politischen und sozialen Belange unserer Gemeinde einsetzt.
+    Wir fördern den Dialog zwischen Jugend und Politik und bieten eine Plattform für kreative Ideen und innovative Projekte.
+    Unser Ziel ist es, die Interessen der jungen Generation zu vertreten und einen positiven Beitrag zur Zukunftsgestaltung in Wenzenbach zu leisten.
+  </p>
+</section>
 
   <h2 style="text-align:center; margin-top:60px; font-size:2rem; color:var(--weiss);">Unsere Vorstandschaft</h2>
   <section class="team-list">
@@ -333,15 +405,20 @@
     </div>
   </section>
 
-  <footer style="background-color: #2c2c2c; color: white; text-align: center; padding: 40px 20px; margin-top: 60px;">
-  <p style="margin: 8px 0;">&copy; 2025 Junge Union Wenzenbach</p>
-  <p style="margin: 8px 0;">
-    93173 Wenzenbach | <a href="mailto:juwenzenbach@gmail.com" style="color: #a1bf2f; text-decoration: none;">juwenzenbach@gmail.com</a>
+  <footer>
+  <p>&copy; 2025 Junge Union Wenzenbach<br>
+    <a href="impressum.html">Impressum</a> |
+    <a href="datenschutz.html">Datenschutz</a> |
+    <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
   </p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </div>
 </footer>
+
 </body>
 </html>
-
 
 
 
