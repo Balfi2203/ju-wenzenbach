@@ -6,12 +6,15 @@
   <title>Kontakt | JU Wenzenbach</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    a:focus { outline: none; }
+
     :root {
       --blau: #00164c;
       --gruen: #a1bf2f;
       --weiss: #FFFFFF;
       --hellblau: #e6f4fb;
       --dunkel: #2f2f2f;
+      --footer-bg: #2c2c2c;
     }
 
     body {
@@ -21,43 +24,36 @@
       color: black;
     }
 
+    /* Header – Größen wie index.html, Farbverlauf bleibt */
     header {
       background: linear-gradient(90deg, var(--blau), var(--gruen));
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      padding: 20px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
     }
 
-    .logo img {
-      height: 50px;
-    }
+    .logo img { height: 50px; }
 
-    nav {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
+    nav { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
     nav a {
-      color: var(--weiss);
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s, color 0.3s;
+      color: var(--weiss); text-decoration: none; font-weight: bold;
+      padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s, color 0.3s;
     }
+    nav a:hover { background-color: rgba(255,255,255,0.2); backdrop-filter: blur(4px); }
 
-    nav a.active {
-      background-color: rgba(255, 255, 255, 0.2);
-      color: var(--gruen);
-    }
+    /* Burger + Mobile Sidebar wie index.html */
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+    .burger div { width: 25px; height: 3px; background-color: white; }
 
-    nav a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    .mobile-nav {
+      position: fixed; top: 0; right: -100%; height: 100%; width: 250px; background-color: var(--blau); color: white;
+      display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 40px 20px;
+      transition: right 0.3s ease-in-out; z-index: 1000;
     }
+    .mobile-nav.active { right: 0; }
+    .mobile-nav a { color: white; text-decoration: none; font-size: 1.2rem; margin-bottom: 20px; display: block; }
+    .close-btn { font-size: 1.5rem; color: white; position: absolute; top: 20px; right: 20px; cursor: pointer; }
+
+    @media (max-width: 768px) { nav { display: none; } .burger { display: flex; } }
 
     .kontakt-section {
       background: linear-gradient(135deg, var(--gruen), var(--blau));
@@ -65,139 +61,50 @@
       text-align: center;
       padding: 80px 20px;
     }
-
-    .kontakt-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .kontakt-section p.subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      color: #d6eaff;
-    }
+    .kontakt-section h2 { font-size: 2.5rem; margin-bottom: 10px; }
+    .kontakt-section p.subtitle { font-size: 1.2rem; margin-bottom: 40px; color: #d6eaff; }
 
     form {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      background-color: var(--hellblau);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      max-width: 700px; margin: 0 auto 30px; background-color: var(--hellblau); padding: 30px;
+      border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
     }
-
-    form textarea {
-      grid-column: span 2;
-      resize: vertical;
-      min-height: 150px;
-    }
-
+    form textarea { grid-column: span 2; resize: vertical; min-height: 150px; }
     input, textarea {
-      padding: 15px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      outline: none;
-      transition: border-color 0.3s;
+      padding: 15px; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; outline: none; transition: border-color 0.3s;
     }
-
-    input:focus, textarea:focus {
-      border-color: var(--blau);
-    }
-
+    input:focus, textarea:focus { border-color: var(--blau); }
     button {
-      grid-column: span 2;
-      padding: 15px;
-      background-color: var(--gruen);
-      color: var(--blau);
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s;
+      grid-column: span 2; padding: 15px; background-color: var(--gruen); color: var(--blau);
+      font-weight: bold; border: none; border-radius: 10px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s;
     }
-
-    button:hover {
-      background-color: #c4dc2b;
-    }
+    button:hover { background-color: #c4dc2b; }
 
     .instagram-kontakt {
-      margin-top: 50px;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 50px; background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 500px; margin-left: auto; margin-right: auto;
     }
-
-    .instagram-kontakt p {
-      margin: 0;
-      font-size: 1.1rem;
-      color: #ffffff;
-    }
-
-    .social-icons a {
-      color: var(--weiss);
-      font-size: 2.5rem;
-      text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.1);
-      color: var(--gruen);
-    }
-
+    .instagram-kontakt p { margin: 0; font-size: 1.1rem; color: #ffffff; }
+    .social-icons a { color: var(--weiss); font-size: 2.5rem; text-decoration: none; transition: transform 0.3s, color 0.3s; }
+    .social-icons a:hover { transform: scale(1.1); color: var(--gruen); }
     .instagram-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 25px;
-      background-color: var(--gruen);
-      color: var(--blau);
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s;
+      display: inline-block; margin-top: 10px; padding: 12px 25px; background-color: var(--gruen); color: var(--blau);
+      font-weight: bold; border-radius: 8px; text-decoration: none; transition: background-color 0.3s;
     }
+    .instagram-button:hover { background-color: #c4dc2b; }
 
-    .instagram-button:hover {
-      background-color: #c4dc2b;
-    }
-
-    footer {
-      background-color: var(--dunkel);
-      color: var(--weiss);
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--gruen);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
+    /* Footer wie index.html */
+    footer { background-color: var(--footer-bg); color: var(--weiss); text-align: center; padding: 40px 20px; }
+    footer a { color: var(--gruen); text-decoration: none; transition: color 0.3s; }
+    footer a:hover { text-decoration: underline; }
+    footer p { margin: 8px 0; font-size: 0.95rem; }
+    footer .social-icons { margin-top: 12px; }
+    footer .social-icons a { color: var(--weiss); margin: 0 12px; font-size: 1.6rem; transition: transform 0.3s; }
+    footer .social-icons a:hover { transform: scale(1.2); }
 
     @media (max-width: 600px) {
-      form {
-        grid-template-columns: 1fr;
-      }
-      button {
-        grid-column: span 1;
-      }
+      form { grid-template-columns: 1fr; }
+      button { grid-column: span 1; }
     }
   </style>
 </head>
@@ -207,14 +114,27 @@
       <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo Weiß">
     </div>
     <nav>
-      <a href="index.html" class="nav-link">Start</a>
-      <a href="ueberuns.html" class="nav-link">Über uns</a>
-      <a href="#" class="nav-link">News</a>
-      <a href="veranstaltungen.html" class="nav-link">Veranstaltungen</a>
-      <a href="mitgliedwerden.html" class="nav-link">Mitglied werden</a>
-      <a href="Kontakt.html" class="nav-link active">Kontakt</a>
+      <a href="index.html">Start</a>
+      <a href="ueberuns.html">Über uns</a>
+      <a href="#">News</a>
+      <a href="veranstaltungen.html">Veranstaltungen</a>
+      <a href="mitgliedwerden.html">Mitglied werden</a>
+      <a href="Kontakt.html">Kontakt</a>
     </nav>
+    <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
+      <div></div><div></div><div></div>
+    </div>
   </header>
+
+  <div class="mobile-nav">
+    <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+    <a href="index.html">Start</a>
+    <a href="ueberuns.html">Über uns</a>
+    <a href="#">News</a>
+    <a href="veranstaltungen.html">Veranstaltungen</a>
+    <a href="mitgliedwerden.html">Mitglied werden</a>
+    <a href="Kontakt.html">Kontakt</a>
+  </div>
 
   <section class="kontakt-section">
     <h2>Kontaktiere uns</h2>
@@ -238,8 +158,15 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Junge Union Wenzenbach</p>
-    <p>93173 Wenzenbach | <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a></p>
+    <p>&copy; 2025 Junge Union Wenzenbach<br>
+      <a href="impressum.html">Impressum</a> |
+      <a href="datenschutz.html">Datenschutz</a> |
+      <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    </div>
   </footer>
 </body>
 </html>
