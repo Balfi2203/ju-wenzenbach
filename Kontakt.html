@@ -65,18 +65,46 @@
     .kontakt-section p.subtitle { font-size: 1.2rem; margin-bottom: 40px; color: #d6eaff; }
 
     form {
-      max-width: 700px; margin: 0 auto 30px; background-color: var(--hellblau); padding: 30px;
-      border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      max-width: 600px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto 40px;
+      background-color: var(--weiss);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
-    form textarea { grid-column: span 2; resize: vertical; min-height: 150px; }
+    form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
     input, textarea {
-      padding: 15px; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; outline: none; transition: border-color 0.3s;
+      width: 100%;
+      max-width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s;
+      font-family: inherit;
+      box-sizing: border-box;
     }
     input:focus, textarea:focus { border-color: var(--blau); }
     button {
-      grid-column: span 2; padding: 15px; background-color: var(--gruen); color: var(--blau);
-      font-weight: bold; border: none; border-radius: 10px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s;
+      padding: 15px 40px;
+      background-color: var(--gruen);
+      color: var(--blau);
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+      align-self: center;
     }
     button:hover { background-color: #c4dc2b; }
 
@@ -103,7 +131,14 @@
     footer .social-icons a:hover { transform: scale(1.2); }
 
     @media (max-width: 600px) {
-      form { grid-template-columns: 1fr; }
+      form {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      button {
+        grid-column: span 1;
+      }
+    }
       button { grid-column: span 1; }
     }
   </style>
@@ -170,4 +205,6 @@
   </footer>
 </body>
 </html>
+
+
 
