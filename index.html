@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- SEO-Optimierung -->
   <title>JU Wenzenbach – Gemeinsam für unsere Zukunft</title>
   <meta name="description" content="Junge Union Wenzenbach – Politisches Engagement für unsere Gemeinde. Jetzt informieren und mitmachen!">
   <meta name="keywords" content="JU Wenzenbach, Junge Union, CSU, Politik, Wenzenbach, Veranstaltungen, Jugend, Engagement">
   <meta name="author" content="JU Wenzenbach">
+
+  <!-- Open Graph (für Social Media Vorschau) -->
   <meta property="og:title" content="JU Wenzenbach – Gemeinsam für unsere Zukunft">
   <meta property="og:description" content="Politisches Engagement für die Gemeinde Wenzenbach. Veranstaltungen, Projekte & Mitmachmöglichkeiten.">
   <meta property="og:image" content="https://ju-wenzenbach.de/ju-og-image.png">
   <meta property="og:url" content="https://ju-wenzenbach.de/">
+
+  <!-- Favicon (optional) -->
   <link rel="icon" href="Einzelbilder/Screenshot 2025-04-13 201601.png" type="image/png" />
+
+  <!-- CSS und Schriftarten -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
@@ -27,6 +35,10 @@
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, var(--gruen), var(--blau));
       color: var(--weiss);
+    }
+
+    a:focus {
+      outline: none;
     }
 
     header {
@@ -153,65 +165,6 @@
       font-size: 2rem;
     }
 
-    .kicker-section {
-  background: linear-gradient(to bottom right, #00164c, #a1bf2f),
-   url("kicker.jpg") no-repeat center center / cover;
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-  position: relative;
-}
-
-.kicker-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* Abdunklung */
-  z-index: 0;
-}
-
-.kicker-section * {
-  position: relative;
-  z-index: 1;
-}
-
-.kicker-section h2 {
-  font-size: 2.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-.kicker-details {
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 1.2rem;
-  line-height: 1.7;
-}
-
-.kicker-details .highlight {
-  color: #d4ed31;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1.3rem;
-}
-
-.kicker-button {
-  background-color: #d4ed31;
-  color: #00164c;
-  padding: 15px 30px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.kicker-button:hover {
-  background-color: white;
-  color: #00164c;
-}
-
     .section {
       padding: 60px 20px;
       text-align: center;
@@ -261,6 +214,11 @@
       text-align: center;
     }
 
+    .about h3 {
+      text-transform: uppercase;
+      color: #ccc;
+    }
+
     .about h2 {
       font-size: 2.5rem;
       margin: 20px 0;
@@ -282,108 +240,106 @@
     footer a {
       color: var(--gruen);
       text-decoration: none;
+      transition: color 0.3s;
     }
 
     footer a:hover {
       text-decoration: underline;
     }
 
+    footer p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
     footer .social-icons {
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     footer .social-icons a {
       color: var(--weiss);
-      margin: 0 10px;
+      margin: 0 12px;
       font-size: 1.6rem;
+      transition: transform 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
-    </div>
-    <nav>
-      <a href="index.html">Start</a>
-      <a href="ueberuns.html">Über uns</a>
-      <a href="news.html">News</a>
-      <a href="veranstaltungen.html">Veranstaltungen</a>
-      <a href="mitgliedwerden.html">Mitglied werden</a>
-      <a href="Kontakt.html">Kontakt</a>
-    </nav>
-    <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
-      <div></div><div></div><div></div>
-    </div>
-  </header>
-
-  <div class="mobile-nav">
-    <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+<header>
+  <div class="logo">
+    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
+  </div>
+  <nav>
     <a href="index.html">Start</a>
     <a href="ueberuns.html">Über uns</a>
     <a href="news.html">News</a>
     <a href="veranstaltungen.html">Veranstaltungen</a>
     <a href="mitgliedwerden.html">Mitglied werden</a>
     <a href="Kontakt.html">Kontakt</a>
+  </nav>
+  <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
+    <div></div><div></div><div></div>
   </div>
+</header>
 
-  <section class="hero">
-    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
-    <h2>Jung. Engagiert. Zukunftsorientiert.</h2>
-    <p>Gestalte mit uns die Politik in Wenzenbach</p>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-  </section>
+<div class="mobile-nav">
+  <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+  <a href="index.html">Start</a>
+  <a href="ueberuns.html">Über uns</a>
+  <a href="#">News</a>
+  <a href="veranstaltungen.html">Veranstaltungen</a>
+  <a href="mitgliedwerden.html">Mitglied werden</a>
+  <a href="Kontakt.html">Kontakt</a>
+</div>
 
-  <section class="kicker-section">
-    <h2>KICKER-TURNIER – KOMM VORBEI!</h2>
-  
-    <div class="kicker-details">
-      <p><span class="highlight">WANN:</span><br>SAMSTAG, 15.11.2025<br>19:00 UHR</p>
-      <p><span class="highlight">WO:</span><br>GASTHAUS GAMBACHTAL<br>Weihermühlweg 16<br>93173 Fußenberg</p>
-      <p><span class="highlight">GEWINN:</span><br>EICHHOFENER 20-LITER-BIERFASS</p>
-      <p>Gespielt wird in Zweierteams – Teilnahmegebühr: 5 € pro Team<br>
-      Teilnahme ab 16 Jahren</p>
-    </div>
-  
-    <a class="kicker-button" href="https://lets-meet.org/reg/251b7b65646a3754cf" target="_blank">Jetzt anmelden</a>
-  </section>
+<section class="hero">
+  <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
+  <h2>Jung. Engagiert. Zukunftsorientiert.</h2>
+  <p>Gestalte mit uns die Politik in Wenzenbach</p>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</section>
 
-  <section class="section">
-    <h2>Werde Teil unserer Bewegung</h2>
-    <p>
-      Wir sind junge Menschen mit Ideen, Energie und Überzeugung. Unsere Mission ist es,
-      gemeinsam die Zukunft Wenzenbachs mitzugestalten – frisch, ehrlich, engagiert.
-      Ob politisch interessiert oder einfach auf der Suche nach Gemeinschaft: Bei uns findest du deinen Platz.
-    </p>
-    <div class="button-row">
-      <a href="mitgliedwerden.html">Jetzt Mitglied werden</a>
-      <a href="Kontakt.html">Fragen? Kontaktiere uns!</a>
-    </div>
-  </section>
+<section class="section">
+  <h2>Werde Teil unserer Bewegung</h2>
+  <p>
+    Wir sind junge Menschen mit Ideen, Energie und Überzeugung. Unsere Mission ist es,
+    gemeinsam die Zukunft Wenzenbachs mitzugestalten – frisch, ehrlich, engagiert.
+    Ob politisch interessiert oder einfach auf der Suche nach Gemeinschaft: Bei uns findest du deinen Platz.
+  </p>
+  <div class="button-row">
+    <a href="mitgliedwerden.html">Jetzt Mitglied werden</a>
+    <a href="Kontakt.html">Fragen? Kontaktiere uns!</a>
+  </div>
+</section>
 
-  <section class="about">
-    <h2>Wir bringen Zukunft in die Gemeinde Wenzenbach</h2>
-    <p>Die Junge Union Wenzenbach ist eine dynamische und engagierte Gemeinschaft junger Menschen, die sich aktiv für die politischen und sozialen Belange unserer Gemeinde einsetzt. Wir fördern den Dialog zwischen Jugend und Politik und bieten eine Plattform für kreative Ideen und innovative Projekte. Unser Ziel ist es, die Interessen der jungen Generation zu vertreten und einen positiven Beitrag zur Zukunftsgestaltung in Wenzenbach zu leisten. Gemeinsam arbeiten wir an einer lebenswerten und zukunftsorientierten Heimat.</p>
-  </section>
+<section class="about">
+  <h2>Wir bringen Zukunft in die Gemeinde Wenzenbach</h2>
+  <p>Die Junge Union Wenzenbach ist eine dynamische und engagierte Gemeinschaft junger Menschen, die sich aktiv für die politischen und sozialen Belange unserer Gemeinde einsetzt. Wir fördern den Dialog zwischen Jugend und Politik und bieten eine Plattform für kreative Ideen und innovative Projekte. Unser Ziel ist es, die Interessen der jungen Generation zu vertreten und einen positiven Beitrag zur Zukunftsgestaltung in Wenzenbach zu leisten. Gemeinsam arbeiten wir an einer lebenswerten und zukunftsorientierten Heimat.</p>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Junge Union Wenzenbach<br>
-      <a href="impressum.html">Impressum</a> |
-      <a href="datenschutz.html">Datenschutz</a> |
-      <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
-    </p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    </div>
-  </footer>
+<footer>
+  <p>&copy; 2025 Junge Union Wenzenbach<br>
+    <a href="impressum.html">Impressum</a> |
+    <a href="datenschutz.html">Datenschutz</a> |
+    <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
+  </p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </div>
+</footer>
 
 </body>
 </html>
+
 
 
 
