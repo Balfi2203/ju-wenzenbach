@@ -25,15 +25,21 @@
   <style>
     :root {
       --blau: #00164c;
+      --blau-hell: #003b8f;
       --gruen: #a1bf2f;
       --weiss: #ffffff;
       --footer-bg: #2c2c2c;
+      --card-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, var(--gruen), var(--blau));
+      background: var(--blau);
       color: var(--weiss);
     }
 
@@ -42,35 +48,40 @@
     }
 
     header {
-      background: linear-gradient(to right, var(--blau), var(--gruen));
-      padding: 20px 40px;
+      background: rgba(0, 22, 76, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     }
 
     .logo img {
-      height: 50px;
+      height: 54px;
     }
 
     nav {
       display: flex;
-      gap: 25px;
+      gap: 22px;
     }
 
     nav a {
       color: var(--weiss);
       text-decoration: none;
       font-weight: bold;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s ease;
     }
 
     nav a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(4px);
+      background-color: rgba(255,255,255,0.15);
+      color: var(--gruen);
     }
 
     .burger {
@@ -81,9 +92,10 @@
     }
 
     .burger div {
-      width: 25px;
+      width: 27px;
       height: 3px;
       background-color: white;
+      border-radius: 3px;
     }
 
     .mobile-nav {
@@ -91,16 +103,14 @@
       top: 0;
       right: -100%;
       height: 100%;
-      width: 250px;
-      background-color: var(--blau);
-      color: white;
+      width: 260px;
+      background: linear-gradient(180deg, var(--blau), var(--blau-hell));
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 40px 20px;
+      padding: 55px 25px;
       transition: right 0.3s ease-in-out;
       z-index: 1000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.4);
     }
 
     .mobile-nav.active {
@@ -111,16 +121,16 @@
       color: white;
       text-decoration: none;
       font-size: 1.2rem;
-      margin-bottom: 20px;
-      display: block;
+      margin-bottom: 22px;
+      font-weight: bold;
     }
 
     .close-btn {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: white;
       position: absolute;
       top: 20px;
-      right: 20px;
+      right: 22px;
       cursor: pointer;
     }
 
@@ -132,102 +142,195 @@
       .burger {
         display: flex;
       }
+
+      header {
+        padding: 16px 24px;
+      }
     }
 
     .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 100px 20px;
+      padding: 90px 20px;
+      background:
+        linear-gradient(rgba(0,22,76,0.88), rgba(0,22,76,0.92)),
+        url("Gruppenfoto JU bearbeitet.jpg") no-repeat top center / cover;
+    }
+
+    .hero-content {
+      max-width: 900px;
     }
 
     .hero img {
-      max-width: 300px;
-      margin-bottom: 20px;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .social-icons {
-      margin-top: 30px;
-    }
-
-    .social-icons a {
-      margin: 0 10px;
-      color: var(--weiss);
-      font-size: 2rem;
-    }
-
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.05);
-    }
-
-    .section h2 {
-      font-size: 2rem;
+      max-width: 310px;
       margin-bottom: 30px;
     }
 
+    .hero h1 {
+      font-size: 3.8rem;
+      margin: 0 0 20px;
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      color: var(--gruen);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons a {
+      padding: 15px 30px;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .primary-btn {
+      background: var(--gruen);
+      color: var(--blau);
+    }
+
+    .secondary-btn {
+      border: 2px solid var(--weiss);
+      color: var(--weiss);
+    }
+
+    .hero-buttons a:hover {
+      transform: translateY(-4px);
+    }
+
+    .social-icons {
+      margin-top: 35px;
+    }
+
+    .social-icons a {
+      color: var(--weiss);
+      font-size: 2rem;
+      margin: 0 12px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--gruen);
+      transform: scale(1.15);
+    }
+
+    .section {
+      padding: 90px 20px;
+      background: linear-gradient(135deg, var(--blau), var(--blau-hell));
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2.7rem;
+      margin-bottom: 20px;
+    }
+
     .section p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 1.1rem;
+      max-width: 780px;
+      margin: 0 auto 45px;
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 22px;
+      padding: 35px 25px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gruen);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: var(--gruen);
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 1rem;
       line-height: 1.6;
+    }
+
+    .cta {
+      padding: 90px 20px;
+      text-align: center;
+      background: var(--weiss);
+      color: var(--blau);
+    }
+
+    .cta h2 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      max-width: 750px;
+      margin: 0 auto 35px;
+      font-size: 1.15rem;
+      line-height: 1.7;
     }
 
     .button-row {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 24px;
       flex-wrap: wrap;
     }
 
     .button-row a {
       background-color: var(--blau);
-      color: var(--gruen);
+      color: var(--weiss);
       padding: 15px 30px;
-      border: 2px solid var(--gruen);
-      border-radius: 8px;
+      border: 2px solid var(--blau);
+      border-radius: 999px;
       text-decoration: none;
       font-weight: bold;
-      font-style: italic;
-      transition: all 0.3s;
+      transition: 0.3s;
     }
 
     .button-row a:hover {
       background-color: var(--gruen);
       color: var(--blau);
-    }
-
-    .about {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("Gruppenfoto JU bearbeitet.jpg") no-repeat top center / cover;
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .about h3 {
-      text-transform: uppercase;
-      color: #ccc;
-    }
-
-    .about h2 {
-      font-size: 2.5rem;
-      margin: 20px 0;
-    }
-
-    .about p {
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
+      border-color: var(--gruen);
+      transform: translateY(-3px);
     }
 
     footer {
@@ -240,7 +343,6 @@
     footer a {
       color: var(--gruen);
       text-decoration: none;
-      transition: color 0.3s;
     }
 
     footer a:hover {
@@ -266,6 +368,21 @@
     footer .social-icons a:hover {
       transform: scale(1.2);
     }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero img {
+        max-width: 240px;
+      }
+
+      .section h2,
+      .cta h2 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -274,14 +391,14 @@
   <div class="logo">
     <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
   </div>
+
   <nav>
     <a href="index.html">Start</a>
-    <a href="ueberuns.html">Über uns</a>
-    <a href="news.html">News</a>
     <a href="veranstaltungen.html">Veranstaltungen</a>
     <a href="mitgliedwerden.html">Mitglied werden</a>
     <a href="Kontakt.html">Kontakt</a>
   </nav>
+
   <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
     <div></div><div></div><div></div>
   </div>
@@ -290,39 +407,71 @@
 <div class="mobile-nav">
   <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
   <a href="index.html">Start</a>
-  <a href="ueberuns.html">Über uns</a>
-  <a href="#">News</a>
   <a href="veranstaltungen.html">Veranstaltungen</a>
   <a href="mitgliedwerden.html">Mitglied werden</a>
   <a href="Kontakt.html">Kontakt</a>
 </div>
 
 <section class="hero">
-  <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
-  <h2>Jung. Engagiert. Zukunftsorientiert.</h2>
-  <p>Gestalte mit uns die Politik in Wenzenbach</p>
-  <div class="social-icons">
-    <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <div class="hero-content">
+    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Großes Logo">
+    <h1>Jung. Stark. <span>Wenzenbach.</span></h1>
+    <p>
+      Wir sind die Junge Union Wenzenbach – junge Menschen mit Ideen, Haltung und Lust darauf,
+      unsere Gemeinde aktiv mitzugestalten.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="primary-btn" href="mitgliedwerden.html">Jetzt mitmachen</a>
+      <a class="secondary-btn" href="veranstaltungen.html">Veranstaltungen ansehen</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
   </div>
 </section>
 
 <section class="section">
-  <h2>Werde Teil unserer Bewegung</h2>
+  <h2>Warum JU Wenzenbach?</h2>
   <p>
-    Wir sind junge Menschen mit Ideen, Energie und Überzeugung. Unsere Mission ist es,
-    gemeinsam die Zukunft Wenzenbachs mitzugestalten – frisch, ehrlich, engagiert.
-    Ob politisch interessiert oder einfach auf der Suche nach Gemeinschaft: Bei uns findest du deinen Platz.
+    Bei uns geht es nicht nur um Politik – sondern um Gemeinschaft, Verantwortung und echte Ideen
+    für unsere Heimat.
   </p>
-  <div class="button-row">
-    <a href="mitgliedwerden.html">Jetzt Mitglied werden</a>
-    <a href="Kontakt.html">Fragen? Kontaktiere uns!</a>
+
+  <div class="cards">
+    <div class="card">
+      <i class="fas fa-users"></i>
+      <h3>Gemeinschaft</h3>
+      <p>Wir bringen junge Menschen zusammen, die etwas bewegen wollen.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Ideen</h3>
+      <p>Wir entwickeln Vorschläge für eine moderne und lebenswerte Gemeinde.</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-handshake"></i>
+      <h3>Engagement</h3>
+      <p>Wir packen an – bei Veranstaltungen, Aktionen und politischen Projekten.</p>
+    </div>
   </div>
 </section>
 
-<section class="about">
-  <h2>Wir bringen Zukunft in die Gemeinde Wenzenbach</h2>
-  <p>Die Junge Union Wenzenbach ist eine dynamische und engagierte Gemeinschaft junger Menschen, die sich aktiv für die politischen und sozialen Belange unserer Gemeinde einsetzt. Wir fördern den Dialog zwischen Jugend und Politik und bieten eine Plattform für kreative Ideen und innovative Projekte. Unser Ziel ist es, die Interessen der jungen Generation zu vertreten und einen positiven Beitrag zur Zukunftsgestaltung in Wenzenbach zu leisten. Gemeinsam arbeiten wir an einer lebenswerten und zukunftsorientierten Heimat.</p>
+<section class="cta">
+  <h2>Werde Teil unserer Bewegung</h2>
+  <p>
+    Ob du politisch interessiert bist, neue Leute kennenlernen möchtest oder einfach Lust hast,
+    Wenzenbach aktiv mitzugestalten – bei uns bist du richtig.
+  </p>
+
+  <div class="button-row">
+    <a href="mitgliedwerden.html">Mitglied werden</a>
+    <a href="Kontakt.html">Kontakt aufnehmen</a>
+  </div>
 </section>
 
 <footer>
@@ -331,6 +480,7 @@
     <a href="datenschutz.html">Datenschutz</a> |
     <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
   </p>
+
   <div class="social-icons">
     <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -339,6 +489,7 @@
 
 </body>
 </html>
+
 
 
 
