@@ -4,342 +4,527 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Datenschutzerklärung | JU Wenzenbach</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    :root { --blau:#00164c; --gruen:#a1bf2f; --weiss:#ffffff; --footer-bg:#2c2c2c; --card:#0b1f4a; }
-
-    /* Base */
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      color:var(--weiss);
-      background: linear-gradient(135deg, var(--gruen), var(--blau));
-      font-size: 18px;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a{ color:var(--weiss); text-decoration: none; }
-    a:focus{ outline: none; }
-
-    /* Header / Nav */
-    header{
-      background: linear-gradient(to right, var(--blau), var(--gruen));
-      padding:16px 24px;
-      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;
-      position:sticky; top:0; z-index:999;  /* stets über Content */
-      box-shadow: 0 6px 20px rgba(0,0,0,.15);
-    }
-    .logo img{ height:46px; }
-    nav{ display:flex; gap:18px; }
-    nav a{
-      color:var(--weiss); font-weight:bold;
-      padding:6px 10px; border-radius:8px; transition:.25s;
-      font-size: 0.98rem;
-    }
-    nav a:hover{ background-color: rgba(255,255,255,.16); }
-    .burger{ display:none; cursor:pointer; flex-direction:column; gap:6px; }
-    .burger div{ width:26px; height:3px; background:#fff; border-radius:2px; }
-
-    .mobile-nav{
-      position:fixed; top:0; right:-100%; height:100%; width:280px;
-      background-color: var(--blau);
-      display:flex; flex-direction:column; padding:48px 24px; gap:18px;
-      transition:right .3s ease-in-out; z-index:1000;
-      box-shadow: -16px 0 40px rgba(0,0,0,.35);
-    }
-    .mobile-nav.active{ right:0; }
-    .mobile-nav a{ color:#fff; font-size:1.05rem; }
-    .close-btn{ position:absolute; top:14px; right:16px; font-size:2rem; cursor:pointer; }
-
-    @media (max-width:900px){
-      nav{ display:none; }
-      .burger{ display:flex; }
+    :root {
+      --blau: #00164c;
+      --blau-hell: #003b8f;
+      --gruen: #a1bf2f;
+      --weiss: #ffffff;
+      --footer-bg: #2c2c2c;
+      --card-bg: rgba(255,255,255,0.08);
     }
 
-    /* Hero */
-    .hero{
-      padding:64px 20px 28px;
-      text-align:center;
-      background: linear-gradient(160deg, rgba(0,0,0,.10), rgba(0,0,0,0) 60%);
-    }
-    .hero h1{ margin:0 0 8px; font-size:2.2rem; letter-spacing:.3px; }
-    .hero p{ margin:0; opacity:.92; font-size:1.05rem; }
-
-    /* Layout */
-    .wrap{
-      max-width:1100px; margin:0 auto; padding:28px 20px 64px;
-      display:grid; grid-template-columns: 300px 1fr; gap:28px;
-      position: relative; z-index: 1;
-    }
-    @media (max-width:1000px){ .wrap{ grid-template-columns:1fr; } }
-
-    /* TOC Sidebar — NICHT sticky, damit nichts überlappt */
-    .toc{
-      align-self:start;
-      background: var(--card);   /* deckend */
-      border:1px solid rgba(255,255,255,.15);
-      border-radius:14px;
-      padding:16px;
-    }
-    .toc h3{ margin:0 0 8px; font-size:1.02rem; font-weight:700; text-align:left; }
-    .toc a{
-      display:block; color:#eaf2ff;
-      padding:8px 10px; border-radius:8px; margin:2px 0; font-size:.98rem;
-      transition:.2s;
-    }
-    .toc a:hover{ background:rgba(255,255,255,.10); }
-
-    /* Content */
-    .card{
-      background: var(--card);   /* deckend, kein Blur */
-      border:1px solid rgba(255,255,255,.15);
-      border-radius:14px;
-      padding:22px;
-      margin:18px 0;
-      box-shadow: 0 10px 30px rgba(0,0,0,.2);
-      position: relative; z-index: 1;   /* sicher über dem Hintergrund */
-      scroll-margin-top: 100px;         /* Anker landen unter Sticky-Header */
-    }
-    .card h2{ margin:0 0 12px; text-align:left; font-size:1.28rem; }
-    .muted{ color:#f0f5ff; }
-    .list{ margin:.5rem 0 .5rem 1.2rem; }
-    .list li{ margin:.25rem 0; }
-
-    /* Mobile Feinschliff */
-    @media (max-width:600px){
-      body{ font-size: 17px; line-height: 1.8; }
-      .card{ padding:18px; }
+    * {
+      box-sizing: border-box;
     }
 
-    /* Footer */
-    footer{
-      background: var(--footer-bg);
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--blau);
       color: var(--weiss);
-      text-align:center;
-      padding:40px 20px;
-      position: relative; z-index: 1;
+      line-height: 1.8;
+      overflow-x: hidden;
     }
-    footer a{ color: var(--gruen); text-decoration:none; transition: .2s; }
-    footer a:hover{ text-decoration:underline; }
-    footer p{ margin:8px 0; font-size:.95rem; }
-    .social-icons{ margin-top:12px; }
-    .social-icons a{ color:#fff; margin:0 12px; font-size:1.6rem; transition: transform .25s; }
-    .social-icons a:hover{ transform: scale(1.2); }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:focus {
+      outline: none;
+    }
+
+    /* HEADER */
+
+    header {
+      background: rgba(0, 22, 76, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    .logo img {
+      height: 54px;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--weiss);
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+      color: var(--gruen);
+    }
+
+    /* BURGER */
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .burger div {
+      width: 28px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 270px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--blau), var(--blau-hell));
+      display: flex;
+      flex-direction: column;
+      padding: 60px 28px;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.4);
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav a {
+      color: white;
+      font-size: 1.15rem;
+      margin-bottom: 24px;
+      font-weight: bold;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      header {
+        padding: 16px 24px;
+      }
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 90px 20px 60px;
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,22,76,0.88), rgba(0,22,76,0.95)),
+        url("Gruppenfoto JU bearbeitet.jpg") center/cover no-repeat;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      margin: 0 0 14px;
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      color: var(--gruen);
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      opacity: 0.95;
+    }
+
+    /* CONTENT */
+
+    .section {
+      padding: 70px 20px;
+      background: linear-gradient(135deg, var(--blau), var(--blau-hell));
+    }
+
+    .content-wrap {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 1000px) {
+      .content-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* TOC */
+
+    .toc {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 22px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      align-self: start;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+    }
+
+    .toc h3 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: var(--gruen);
+      font-size: 1.2rem;
+    }
+
+    .toc a {
+      display: block;
+      color: white;
+      padding: 8px 0;
+      font-weight: bold;
+      transition: 0.3s ease;
+      opacity: 0.92;
+    }
+
+    .toc a:hover {
+      color: var(--gruen);
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
+    /* CARDS */
+
+    .info-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 22px;
+      padding: 30px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+      scroll-margin-top: 100px;
+    }
+
+    .info-card h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: var(--gruen);
+      font-size: 1.45rem;
+    }
+
+    .info-card p,
+    .info-card li {
+      font-size: 1.05rem;
+    }
+
+    .info-card ul {
+      padding-left: 20px;
+    }
+
+    .info-card a {
+      color: var(--gruen);
+      font-weight: bold;
+    }
+
+    .info-card a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 17px;
+      }
+
+      .info-card {
+        padding: 22px;
+      }
+
+      .hero {
+        padding: 75px 20px 50px;
+      }
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--footer-bg);
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: var(--gruen);
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      margin-top: 12px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
+
 <body>
 
 <header>
   <div class="logo">
     <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
   </div>
+
   <nav>
     <a href="index.html">Start</a>
-    <a href="ueberuns.html">Über uns</a>
-    <a href="#">News</a>
     <a href="veranstaltungen.html">Veranstaltungen</a>
     <a href="mitgliedwerden.html">Mitglied werden</a>
     <a href="Kontakt.html">Kontakt</a>
   </nav>
-  <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')" aria-label="Menü öffnen">
+
+  <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
     <div></div><div></div><div></div>
   </div>
 </header>
 
-<div class="mobile-nav" aria-label="Mobile Navigation">
-  <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')" aria-label="Menü schließen">&times;</div>
+<div class="mobile-nav">
+  <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+
   <a href="index.html">Start</a>
-  <a href="ueberuns.html">Über uns</a>
-  <a href="#">News</a>
   <a href="veranstaltungen.html">Veranstaltungen</a>
   <a href="mitgliedwerden.html">Mitglied werden</a>
   <a href="Kontakt.html">Kontakt</a>
 </div>
 
 <section class="hero">
-  <h1>Datenschutzerklärung</h1>
-  <p>Informationen nach Art. 13/14 DSGVO zur Verarbeitung personenbezogener Daten</p>
+  <h1>Datenschutz<span>erklärung</span></h1>
+  <p>
+    Informationen nach Art. 13 und 14 DSGVO zur Verarbeitung personenbezogener Daten auf der Website der JU Wenzenbach.
+  </p>
 </section>
 
-<div class="wrap">
-  <!-- TOC -->
-  <aside class="toc">
-    <h3>Inhalt</h3>
-    <a href="#v1">1. Verantwortlicher</a>
-    <a href="#v2">2. Allgemeines</a>
-    <a href="#v3">3. Hosting (GitHub Pages)</a>
-    <a href="#v4">4. Externe Bibliotheken/CDNs</a>
-    <a href="#v5">5. Server-Logfiles</a>
-    <a href="#v6">6. Cookies</a>
-    <a href="#v7">7. Kontaktaufnahme</a>
-    <a href="#v8">8. Politische Inhalte</a>
-    <a href="#v9">9. Rechtsgrundlagen & Dauer</a>
-    <a href="#v10">10. Empfänger/Drittländer</a>
-    <a href="#v11">11. Ihre Rechte</a>
-    <a href="#v12">12. Sicherheit</a>
-    <a href="#v13">13. Minderjährige</a>
-    <a href="#v14">14. Aktualisierung</a>
-  </aside>
+<section class="section">
+  <div class="content-wrap">
 
-  <!-- Content -->
-  <main>
-    <div class="card" id="v1">
-      <h2>1. Verantwortlicher</h2>
-      <p class="muted">
-        Junge Union Wenzenbach – politische Organisation<br>
-        Betreiber / Verantwortlicher: Patrick Schön (1. Vorsitzender)<br>
-        Unterlindhofstraße 23, 93173 Wenzenbach<br>
-        E-Mail: <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
-      </p>
-    </div>
+    <!-- TOC -->
+    <aside class="toc">
+      <h3>Inhalt</h3>
 
-    <div class="card" id="v2">
-      <h2>2. Allgemeines zur Datenverarbeitung</h2>
-      <p>
-        Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie
-        unserer Inhalte und Leistungen erforderlich ist. Rechtsgrundlagen sind insbesondere Art. 6 Abs. 1 lit. f DSGVO
-        (berechtigtes Interesse an sicherem, stabilem Betrieb) und Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), sofern Sie
-        uns diese erteilen (z.&nbsp;B. bei der Kontaktaufnahme).
-      </p>
-    </div>
+      <a href="#v1">1. Verantwortlicher</a>
+      <a href="#v2">2. Allgemeines</a>
+      <a href="#v3">3. Hosting</a>
+      <a href="#v4">4. Externe Dienste</a>
+      <a href="#v5">5. Server-Logfiles</a>
+      <a href="#v6">6. Cookies</a>
+      <a href="#v7">7. Kontaktaufnahme</a>
+      <a href="#v8">8. Politische Inhalte</a>
+      <a href="#v9">9. Speicherdauer</a>
+      <a href="#v10">10. Drittlandübermittlung</a>
+      <a href="#v11">11. Ihre Rechte</a>
+      <a href="#v12">12. Sicherheit</a>
+      <a href="#v13">13. Minderjährige</a>
+      <a href="#v14">14. Aktualisierung</a>
+    </aside>
 
-    <div class="card" id="v3">
-      <h2>3. Hosting &amp; Bereitstellung über GitHub Pages</h2>
-      <p>
-        Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf der Seite werden technisch erforderliche Daten
-        (z.&nbsp;B. IP-Adresse, Datum/Uhrzeit, abgerufene URL, Referrer, Browser- und Betriebssysteminformationen)
-        verarbeitet, um Inhalte auszuliefern, Sicherheit zu gewährleisten und Missbrauch zu verhindern.
-        GitHub kann dabei als Hosting-Anbieter eigene Logdaten verarbeiten; es ist nicht ausgeschlossen, dass dabei eine
-        Verarbeitung in Drittländern (u.&nbsp;a. USA) erfolgt.
-      </p>
-      <p>
-        Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Bereitstellung und
-        Sicherheit der Website).
-      </p>
-    </div>
+    <!-- CONTENT -->
+    <main>
 
-    <div class="card" id="v4">
-      <h2>4. Eingebundene Bibliotheken &amp; Inhalte Dritter</h2>
-      <p>
-        Für Icons/Schriften können Content Delivery Networks (z.&nbsp;B. Font Awesome CDN) eingesetzt werden. Beim Laden
-        solcher Ressourcen erhält der jeweilige Anbieter Ihre IP-Adresse und technische Metadaten. Rechtsgrundlage ist
-        Art. 6 Abs. 1 lit. f DSGVO (effiziente Bereitstellung). Sofern optionale Dienste eingesetzt werden, holen wir
-        zuvor Ihre Einwilligung ein (Art. 6 Abs. 1 lit. a DSGVO).
-      </p>
-    </div>
+      <div class="info-card" id="v1">
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Junge Union Wenzenbach – politische Organisation<br>
+          Verantwortlicher: Patrick Schön (1. Vorsitzender)<br>
+          Unterlindhofstraße 23, 93173 Wenzenbach<br>
+          E-Mail:
+          <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
+        </p>
+      </div>
 
-    <div class="card" id="v5">
-      <h2>5. Server-Logfiles</h2>
-      <p>
-        Beim Aufruf unserer Seiten werden durch den Webserver automatisch Informationen in Logfiles gespeichert
-        (IP-Adresse – soweit möglich pseudonymisiert, Datum/Uhrzeit, Zeitzone, angeforderte Inhalte, HTTP-Status,
-        übertragene Datenmenge, Referrer, Browser/OS/Sprache). Die Speicherung erfolgt temporär und in einer Form, die
-        keine unmittelbare Identifizierung zulässt, sofern keine weitergehende Aufbewahrung zu Beweiszwecken erforderlich ist.
-        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
-      </p>
-    </div>
+      <div class="info-card" id="v2">
+        <h2>2. Allgemeines zur Datenverarbeitung</h2>
+        <p>
+          Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung einer funktionsfähigen Website
+          sowie unserer Inhalte erforderlich ist.
+        </p>
+      </div>
 
-    <div class="card" id="v6">
-      <h2>6. Cookies &amp; lokale Speichertechnologien</h2>
-      <p>
-        Unsere Website ist so gestaltet, dass sie ohne Tracking-Cookies funktioniert. Funktionale Cookies können
-        technisch erforderlich sein (z.&nbsp;B. für das mobile Navigationsmenü). Werden optionale Cookies eingesetzt,
-        holen wir zuvor Ihre Einwilligung ein.
-      </p>
-    </div>
+      <div class="info-card" id="v3">
+        <h2>3. Hosting & GitHub Pages</h2>
+        <p>
+          Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf werden technisch erforderliche Daten
+          verarbeitet (z. B. IP-Adresse, Browserinformationen oder Uhrzeit).
+        </p>
+      </div>
 
-    <div class="card" id="v7">
-      <h2>7. Kontaktaufnahme (E-Mail/Kontaktformular)</h2>
-      <p>
-        Bei einer Kontaktaufnahme per E-Mail oder Formular verarbeiten wir die übermittelten Daten (z.&nbsp;B. Name,
-        E-Mail-Adresse, Nachricht) zur Bearbeitung Ihres Anliegens und für Anschlussfragen. Rechtsgrundlagen:
-        Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche/vertragliche Maßnahmen) und Art. 6 Abs. 1 lit. f DSGVO
-        (berechtigtes Interesse an der Kommunikation). Eine Weitergabe an Dritte erfolgt nicht ohne Ihre Einwilligung.
-      </p>
-    </div>
+      <div class="info-card" id="v4">
+        <h2>4. Eingebundene Dienste & Inhalte Dritter</h2>
+        <p>
+          Zur Darstellung von Icons und Designs können externe Bibliotheken (z. B. Font Awesome CDN) verwendet werden.
+        </p>
+      </div>
 
-    <div class="card" id="v8">
-      <h2>8. Politische Inhalte</h2>
-      <p>
-        Als politische Organisation informieren wir über politische Themen, Positionen und Veranstaltungen. Eine
-        Profilbildung zu Besuchern findet nicht statt. Sollten künftig Newsletter, Tracking oder vergleichbare
-        Maßnahmen eingeführt werden, informieren wir vorab gesondert und holen erforderliche Einwilligungen ein.
-      </p>
-    </div>
+      <div class="info-card" id="v5">
+        <h2>5. Server-Logfiles</h2>
+        <p>
+          Beim Besuch unserer Website werden automatisch technische Informationen gespeichert, die zur sicheren
+          Bereitstellung der Website notwendig sind.
+        </p>
+      </div>
 
-    <div class="card" id="v9">
-      <h2>9. Rechtsgrundlagen, Speicherdauer</h2>
-      <p>
-        Die Rechtsgrundlagen ergeben sich aus Art. 6 Abs. 1 DSGVO (insb. lit. a, b, f). Personenbezogene Daten löschen
-        wir, sobald der jeweilige Zweck entfällt und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
-      </p>
-    </div>
+      <div class="info-card" id="v6">
+        <h2>6. Cookies</h2>
+        <p>
+          Unsere Website verwendet keine Tracking-Cookies. Technisch notwendige Funktionen können lokale
+          Speichertechnologien verwenden.
+        </p>
+      </div>
 
-    <div class="card" id="v10">
-      <h2>10. Empfänger &amp; Drittlandübermittlungen</h2>
-      <p>
-        Im Rahmen des Hostings und der Auslieferung von Inhalten können Anbieter (z.&nbsp;B. GitHub/CDNs) Daten erhalten.
-        Dabei ist eine Verarbeitung in Drittländern (u.&nbsp;a. USA) möglich. In diesen Fällen achten wir auf ein
-        angemessenes Schutzniveau (z.&nbsp;B. Standardvertragsklauseln des Anbieters), soweit es in unserem Einflussbereich liegt.
-      </p>
-    </div>
+      <div class="info-card" id="v7">
+        <h2>7. Kontaktaufnahme</h2>
+        <p>
+          Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage genutzt.
+        </p>
+      </div>
 
-    <div class="card" id="v11">
-      <h2>11. Ihre Rechte</h2>
-      <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
-      <ul class="list">
-        <li>Auskunft (Art. 15 DSGVO)</li>
-        <li>Berichtigung (Art. 16 DSGVO)</li>
-        <li>Löschung (Art. 17 DSGVO)</li>
-        <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-        <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
-        <li>Widerspruch (Art. 21 DSGVO)</li>
-        <li>Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)</li>
-      </ul>
-    </div>
+      <div class="info-card" id="v8">
+        <h2>8. Politische Inhalte</h2>
+        <p>
+          Als politische Organisation informieren wir über politische Themen, Veranstaltungen und Positionen.
+        </p>
+      </div>
 
-    <div class="card" id="v12">
-      <h2>12. Sicherheit</h2>
-      <p>
-        Wir treffen angemessene technische und organisatorische Maßnahmen, um Ihre Daten gegen Verlust, Missbrauch
-        und unbefugten Zugriff zu schützen. Dazu gehört u.&nbsp;a. die Nutzung sicherer Verbindungen (HTTPS), sofern
-        vom Hosting/Anbieter bereitgestellt.
-      </p>
-    </div>
+      <div class="info-card" id="v9">
+        <h2>9. Rechtsgrundlagen & Speicherdauer</h2>
+        <p>
+          Personenbezogene Daten werden gelöscht, sobald der jeweilige Zweck entfällt und keine gesetzlichen
+          Aufbewahrungspflichten bestehen.
+        </p>
+      </div>
 
-    <div class="card" id="v13">
-      <h2>13. Minderjährige</h2>
-      <p>
-        Unser Angebot richtet sich nicht an Kinder unter 16 Jahren. Personen unter 16 Jahren sollten ohne Zustimmung
-        der Erziehungsberechtigten keine personenbezogenen Daten an uns übermitteln.
-      </p>
-    </div>
+      <div class="info-card" id="v10">
+        <h2>10. Drittlandübermittlung</h2>
+        <p>
+          Durch Hosting- oder CDN-Anbieter kann eine Datenverarbeitung außerhalb der EU (z. B. USA) erfolgen.
+        </p>
+      </div>
 
-    <div class="card" id="v14">
-      <h2>14. Aktualisierung dieser Datenschutzerklärung</h2>
-      <p>
-        Wir passen diese Datenschutzerklärung an, wenn dies aufgrund geänderter Rechtslagen oder Änderungen unserer
-        Dienste erforderlich ist. Bitte beachten Sie die jeweils aktuelle Version auf dieser Seite.
-      </p>
-      <p class="muted" style="text-align:center;">Zuletzt aktualisiert: 08.09.2025</p>
-    </div>
-  </main>
-</div>
+      <div class="info-card" id="v11">
+        <h2>11. Ihre Rechte</h2>
+
+        <ul>
+          <li>Auskunft nach Art. 15 DSGVO</li>
+          <li>Berichtigung nach Art. 16 DSGVO</li>
+          <li>Löschung nach Art. 17 DSGVO</li>
+          <li>Einschränkung nach Art. 18 DSGVO</li>
+          <li>Datenübertragbarkeit nach Art. 20 DSGVO</li>
+          <li>Widerspruch nach Art. 21 DSGVO</li>
+        </ul>
+      </div>
+
+      <div class="info-card" id="v12">
+        <h2>12. Sicherheit</h2>
+        <p>
+          Wir verwenden technische und organisatorische Maßnahmen, um Ihre Daten bestmöglich zu schützen.
+        </p>
+      </div>
+
+      <div class="info-card" id="v13">
+        <h2>13. Minderjährige</h2>
+        <p>
+          Unsere Website richtet sich nicht an Kinder unter 16 Jahren.
+        </p>
+      </div>
+
+      <div class="info-card" id="v14">
+        <h2>14. Aktualisierung</h2>
+        <p>Zuletzt aktualisiert: 02.05.2026</p>
+      </div>
+
+    </main>
+  </div>
+</section>
 
 <footer>
-  <p>&copy; 2025 Junge Union Wenzenbach<br>
+  <p>
+    &copy; 2026 Junge Union Wenzenbach<br>
     <a href="impressum.html">Impressum</a> |
     <a href="datenschutz.html">Datenschutz</a> |
     <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
   </p>
+
   <div class="social-icons">
-    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/juwenzenbach" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://www.facebook.com/juwenzenbach" target="_blank">
+      <i class="fab fa-facebook-f"></i>
+    </a>
   </div>
 </footer>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const mobileNav = document.querySelector(".mobile-nav");
+  const closeBtn = document.querySelector(".close-btn");
+
+  burger.addEventListener("click", () => {
+    mobileNav.classList.add("active");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileNav.classList.remove("active");
+  });
+</script>
 
 </body>
 </html>
