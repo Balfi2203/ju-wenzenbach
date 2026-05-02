@@ -1,208 +1,498 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt | JU Wenzenbach</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    a:focus { outline: none; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+  <title>Kontakt | JU Wenzenbach</title>
+  <meta name="description" content="Nimm Kontakt mit der Jungen Union Wenzenbach auf – per E-Mail oder direkt über Instagram.">
+  <meta name="keywords" content="Kontakt JU Wenzenbach, Junge Union Wenzenbach, E-Mail, Instagram, Politik Wenzenbach">
+  <meta name="author" content="JU Wenzenbach">
+
+  <link rel="icon" href="Einzelbilder/Screenshot 2025-04-13 201601.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
     :root {
       --blau: #00164c;
+      --blau-hell: #003b8f;
       --gruen: #a1bf2f;
-      --weiss: #FFFFFF;
-      --hellblau: #e6f4fb;
-      --dunkel: #2f2f2f;
+      --weiss: #ffffff;
       --footer-bg: #2c2c2c;
+      --card-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: var(--weiss);
-      color: black;
+      background: var(--blau);
+      color: var(--weiss);
     }
 
-    /* Header – Größen wie index.html, Farbverlauf bleibt */
+    a:focus {
+      outline: none;
+    }
+
     header {
-      background: linear-gradient(90deg, var(--blau), var(--gruen));
-      padding: 20px 40px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      background: rgba(0, 22, 76, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     }
 
-    .logo img { height: 50px; }
+    .logo img {
+      height: 54px;
+    }
 
-    nav { display: flex; gap: 25px; flex-wrap: wrap; align-items: center; }
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+
     nav a {
-      color: var(--weiss); text-decoration: none; font-weight: bold;
-      padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s, color 0.3s;
+      color: var(--weiss);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s ease;
     }
-    nav a:hover { background-color: rgba(255,255,255,0.2); backdrop-filter: blur(4px); }
 
-    /* Burger + Mobile Sidebar wie index.html */
-    .burger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
-    .burger div { width: 25px; height: 3px; background-color: white; }
+    nav a:hover,
+    nav a.active {
+      background-color: rgba(255,255,255,0.15);
+      color: var(--gruen);
+    }
+
+    .burger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .burger div {
+      width: 27px;
+      height: 3px;
+      background-color: white;
+      border-radius: 3px;
+    }
 
     .mobile-nav {
-      position: fixed; top: 0; right: -100%; height: 100%; width: 250px; background-color: var(--blau); color: white;
-      display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 40px 20px;
-      transition: right 0.3s ease-in-out; z-index: 1000;
-    }
-    .mobile-nav.active { right: 0; }
-    .mobile-nav a { color: white; text-decoration: none; font-size: 1.2rem; margin-bottom: 20px; display: block; }
-    .close-btn { font-size: 1.5rem; color: white; position: absolute; top: 20px; right: 20px; cursor: pointer; }
-
-    @media (max-width: 768px) { nav { display: none; } .burger { display: flex; } }
-
-    .kontakt-section {
-      background: linear-gradient(135deg, var(--gruen), var(--blau));
-      color: var(--weiss);
-      text-align: center;
-      padding: 80px 20px;
-    }
-    .kontakt-section h2 { font-size: 2.5rem; margin-bottom: 10px; }
-    .kontakt-section p.subtitle { font-size: 1.2rem; margin-bottom: 40px; color: #d6eaff; }
-
-    form {
-      max-width: 600px;
-      width: 100%;
-      box-sizing: border-box;
-      margin: 0 auto 40px;
-      background-color: var(--weiss);
-      padding: 40px 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100%;
+      width: 260px;
+      background: linear-gradient(180deg, var(--blau), var(--blau-hell));
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      padding: 55px 25px;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.4);
     }
-    form textarea {
-      resize: vertical;
-      min-height: 150px;
+
+    .mobile-nav.active {
+      right: 0;
     }
-    input, textarea {
-      width: 100%;
-      max-width: 100%;
-      padding: 14px;
+
+    .mobile-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-bottom: 22px;
+      font-weight: bold;
+    }
+
+    .mobile-nav a:hover,
+    .mobile-nav a.active {
+      color: var(--gruen);
+    }
+
+    .close-btn {
+      font-size: 1.8rem;
+      color: white;
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      cursor: pointer;
+    }
+
+    .contact-hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 90px 20px;
+      background:
+        linear-gradient(rgba(0,22,76,0.88), rgba(0,22,76,0.92)),
+        url("Gruppenfoto JU bearbeitet.jpg") no-repeat top center / cover;
+    }
+
+    .contact-content {
+      max-width: 900px;
+    }
+
+    .contact-content img {
+      max-width: 260px;
+      margin-bottom: 30px;
+    }
+
+    .contact-content h1 {
+      font-size: 3.6rem;
+      margin: 0 0 20px;
+      line-height: 1.1;
+    }
+
+    .contact-content h1 span {
+      color: var(--gruen);
+    }
+
+    .contact-content p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 35px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .contact-buttons a {
+      padding: 15px 30px;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .primary-btn {
+      background: var(--gruen);
+      color: var(--blau);
+    }
+
+    .secondary-btn {
+      border: 2px solid var(--weiss);
+      color: var(--weiss);
+    }
+
+    .contact-buttons a:hover {
+      transform: translateY(-4px);
+    }
+
+    .info-section {
+      padding: 90px 20px;
+      background: linear-gradient(135deg, var(--blau), var(--blau-hell));
+      text-align: center;
+    }
+
+    .info-section h2 {
+      font-size: 2.7rem;
+      margin-bottom: 20px;
+    }
+
+    .info-section p {
+      max-width: 780px;
+      margin: 0 auto 45px;
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
+    .contact-cards {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 22px;
+      padding: 35px 25px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+      transition: 0.3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gruen);
+    }
+
+    .contact-card i {
+      font-size: 2.5rem;
+      color: var(--gruen);
+      margin-bottom: 18px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .contact-card p {
+      margin: 0 0 24px;
       font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      outline: none;
-      transition: border-color 0.3s;
-      font-family: inherit;
-      box-sizing: border-box;
+      line-height: 1.6;
     }
-    input:focus, textarea:focus { border-color: var(--blau); }
-    button {
-      padding: 15px 40px;
+
+    .card-btn {
+      display: inline-block;
+      background: var(--gruen);
+      color: var(--blau);
+      padding: 13px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .card-btn:hover {
+      background: var(--weiss);
+      transform: translateY(-3px);
+    }
+
+    .cta {
+      padding: 90px 20px;
+      text-align: center;
+      background: var(--weiss);
+      color: var(--blau);
+    }
+
+    .cta h2 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      max-width: 750px;
+      margin: 0 auto 35px;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .button-row a {
+      background-color: var(--blau);
+      color: var(--weiss);
+      padding: 15px 30px;
+      border: 2px solid var(--blau);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button-row a:hover {
       background-color: var(--gruen);
       color: var(--blau);
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s;
-      align-self: center;
+      border-color: var(--gruen);
+      transform: translateY(-3px);
     }
-    button:hover { background-color: #c4dc2b; }
 
-    .instagram-kontakt {
-      margin-top: 50px; background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px;
-      display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: 500px; margin-left: auto; margin-right: auto;
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--weiss);
+      text-align: center;
+      padding: 40px 20px;
     }
-    .instagram-kontakt p { margin: 0; font-size: 1.1rem; color: #ffffff; }
-    .social-icons a { color: var(--weiss); font-size: 2.5rem; text-decoration: none; transition: transform 0.3s, color 0.3s; }
-    .social-icons a:hover { transform: scale(1.1); color: var(--gruen); }
-    .instagram-button {
-      display: inline-block; margin-top: 10px; padding: 12px 25px; background-color: var(--gruen); color: var(--blau);
-      font-weight: bold; border-radius: 8px; text-decoration: none; transition: background-color 0.3s;
-    }
-    .instagram-button:hover { background-color: #c4dc2b; }
 
-    /* Footer wie index.html */
-    footer { background-color: var(--footer-bg); color: var(--weiss); text-align: center; padding: 40px 20px; }
-    footer a { color: var(--gruen); text-decoration: none; transition: color 0.3s; }
-    footer a:hover { text-decoration: underline; }
-    footer p { margin: 8px 0; font-size: 0.95rem; }
-    footer .social-icons { margin-top: 12px; }
-    footer .social-icons a { color: var(--weiss); margin: 0 12px; font-size: 1.6rem; transition: transform 0.3s; }
-    footer .social-icons a:hover { transform: scale(1.2); }
+    footer a {
+      color: var(--gruen);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    footer .social-icons {
+      margin-top: 12px;
+    }
+
+    footer .social-icons a {
+      color: var(--weiss);
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: transform 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      transform: scale(1.2);
+      color: var(--gruen);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      header {
+        padding: 16px 24px;
+      }
+    }
 
     @media (max-width: 600px) {
-      form {
-        grid-template-columns: 1fr;
-        padding: 20px;
+      .contact-content h1 {
+        font-size: 2.5rem;
       }
-      button {
-        grid-column: span 1;
+
+      .contact-content img {
+        max-width: 230px;
       }
-    }
-      button { grid-column: span 1; }
+
+      .info-section h2,
+      .cta h2 {
+        font-size: 2rem;
+      }
+
+      .contact-buttons a,
+      .button-row a {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo Weiß">
-    </div>
-    <nav>
-      <a href="index.html">Start</a>
-      <a href="ueberuns.html">Über uns</a>
-      <a href="news.html">News</a>
-      <a href="veranstaltungen.html">Veranstaltungen</a>
-      <a href="mitgliedwerden.html">Mitglied werden</a>
-      <a href="Kontakt.html">Kontakt</a>
-    </nav>
-    <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
-      <div></div><div></div><div></div>
-    </div>
-  </header>
 
-  <div class="mobile-nav">
-    <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
-    <a href="index.html">Start</a>
-    <a href="ueberuns.html">Über uns</a>
-    <a href="#">News</a>
-    <a href="veranstaltungen.html">Veranstaltungen</a>
-    <a href="mitgliedwerden.html">Mitglied werden</a>
-    <a href="Kontakt.html">Kontakt</a>
+<header>
+  <div class="logo">
+    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
   </div>
 
-  <section class="kontakt-section">
-    <h2>Kontaktiere uns</h2>
-    <p class="subtitle">Wir freuen uns über deine Nachricht – ganz egal ob Fragen, Anregungen oder Lob!</p>
-    <form action="mailto:juwenzenbach@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="Name" placeholder="Dein Name" required>
-      <input type="email" name="Email" placeholder="Deine E-Mail-Adresse" required>
-      <textarea name="Nachricht" placeholder="Deine Nachricht an uns..." required></textarea>
-      <button type="submit">Absenden</button>
-    </form>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="veranstaltungen.html">Veranstaltungen</a>
+    <a href="mitgliedwerden.html">Mitglied werden</a>
+    <a href="Kontakt.html" class="active">Kontakt</a>
+  </nav>
 
-    <div class="instagram-kontakt">
-      <p>Oder schreib uns direkt auf Instagram</p>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-      <a class="instagram-button" href="https://www.instagram.com/ju_wenzenbach/" target="_blank">Instagram öffnen</a>
-    </div>
-  </section>
+  <div class="burger" onclick="document.querySelector('.mobile-nav').classList.add('active')">
+    <div></div><div></div><div></div>
+  </div>
+</header>
 
-  <footer>
-    <p>&copy; 2025 Junge Union Wenzenbach<br>
-      <a href="impressum.html">Impressum</a> |
-      <a href="datenschutz.html">Datenschutz</a> |
-      <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
+<div class="mobile-nav">
+  <div class="close-btn" onclick="document.querySelector('.mobile-nav').classList.remove('active')">&times;</div>
+  <a href="index.html">Start</a>
+  <a href="veranstaltungen.html">Veranstaltungen</a>
+  <a href="mitgliedwerden.html">Mitglied werden</a>
+  <a href="Kontakt.html" class="active">Kontakt</a>
+</div>
+
+<section class="contact-hero">
+  <div class="contact-content">
+    <img src="https://static.wixstatic.com/media/94dea3_4b191ff44294478d902df3c1d91b3e4c~mv2.png" alt="JU Wenzenbach Logo">
+    <h1>Schreib uns. <span>Mach mit.</span></h1>
+    <p>
+      Du hast Fragen zur JU Wenzenbach, möchtest bei einer Veranstaltung vorbeischauen
+      oder hast eine Idee für unsere Gemeinde? Dann melde dich gerne bei uns.
+      Wir freuen uns über jede Nachricht und über alle, die Wenzenbach aktiv mitgestalten wollen.
     </p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+
+    <div class="contact-buttons">
+      <a class="primary-btn" href="mailto:juwenzenbach@gmail.com">
+        <i class="fas fa-envelope"></i> E-Mail schreiben
+      </a>
+      <a class="secondary-btn" href="https://www.instagram.com/ju_wenzenbach/" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram-DM
+      </a>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section class="info-section">
+  <h2>So erreichst du uns</h2>
+  <p>
+    Ob klassisch per E-Mail oder unkompliziert per Instagram – such dir einfach den Weg aus,
+    der für dich am besten passt.
+  </p>
+
+  <div class="contact-cards">
+    <div class="contact-card">
+      <i class="fas fa-envelope-open-text"></i>
+      <h3>Per E-Mail</h3>
+      <p>
+        Für Fragen, Anliegen, Ideen oder organisatorische Themen erreichst du uns jederzeit per E-Mail.
+      </p>
+      <a class="card-btn" href="mailto:juwenzenbach@gmail.com">E-Mail öffnen</a>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-instagram"></i>
+      <h3>Per Instagram</h3>
+      <p>
+        Du möchtest schnell und direkt Kontakt aufnehmen? Dann schreib uns einfach eine DM auf Instagram.
+      </p>
+      <a class="card-btn" href="https://www.instagram.com/ju_wenzenbach/" target="_blank">Instagram öffnen</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Wir freuen uns auf dich!</h2>
+  <p>
+    Politik lebt vom Mitmachen. Egal ob du schon konkrete Ideen hast oder einfach erst einmal
+    reinschnuppern möchtest – bei der JU Wenzenbach bist du herzlich willkommen.
+  </p>
+
+  <div class="button-row">
+    <a href="mitgliedwerden.html">Mitglied werden</a>
+    <a href="veranstaltungen.html">Veranstaltungen ansehen</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Junge Union Wenzenbach<br>
+    <a href="impressum.html">Impressum</a> |
+    <a href="datenschutz.html">Datenschutz</a> |
+    <a href="mailto:juwenzenbach@gmail.com">juwenzenbach@gmail.com</a>
+  </p>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com/ju_wenzenbach/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/juwenzenbach" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </div>
+</footer>
+
 </body>
 </html>
 
