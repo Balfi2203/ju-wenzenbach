@@ -30,92 +30,106 @@
       outline: none;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER wie index.html ===== */
     header {
+      background: rgba(0, 22, 76, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: var(--navy);
-      border-bottom: 3px solid var(--lime);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+      z-index: 999;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     }
 
     .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+      width: 100%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 10px 20px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo img {
-      height: 56px;
+      height: 54px;
       display: block;
     }
 
     nav {
       display: flex;
-      gap: 8px;
+      gap: 22px;
     }
 
     nav a {
       color: var(--white);
       text-decoration: none;
-      font-weight: 700;
-      padding: 10px 14px;
-      border-radius: 10px;
-      transition: background 0.2s;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s ease;
     }
 
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
+    nav a:hover,
     nav a.active {
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      background-color: rgba(255,255,255,0.15);
+      color: var(--lime);
     }
 
     .burger {
       display: none;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 1.6rem;
       cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    @media (max-width: 960px) {
-      nav { display: none; }
-      .burger { display: block; }
+    .burger div {
+      width: 27px;
+      height: 3px;
+      background-color: white;
+      border-radius: 3px;
     }
 
-    /* ===== MOBILE NAV ===== */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      header {
+        padding: 16px 24px;
+      }
+    }
+
+    /* ===== MOBILE NAV wie index.html ===== */
     .mobile-nav {
       position: fixed;
       top: 0;
       right: -100%;
-      width: 75%;
       height: 100%;
-      background: rgba(7, 12, 34, 0.98);
-      backdrop-filter: blur(10px);
+      width: 260px;
+      background: linear-gradient(180deg, var(--navy), #003b8f);
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      padding: 40px 24px;
-      transition: right 0.3s ease;
-      z-index: 9999;
+      padding: 55px 25px;
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.4);
     }
 
     .mobile-nav.active { right: 0; }
 
     .mobile-nav a {
-      color: var(--white);
-      font-size: 1.4rem;
+      color: white;
       text-decoration: none;
-      margin: 14px 0;
-      text-align: right;
+      font-size: 1.2rem;
+      margin-bottom: 22px;
+      font-weight: bold;
     }
 
     .mobile-nav a.active {
@@ -124,14 +138,14 @@
     }
 
     .close-btn {
+      font-size: 1.8rem;
+      color: white;
       position: absolute;
-      top: 14px;
-      right: 18px;
-      font-size: 2rem;
-      border: none;
-      background: none;
-      color: var(--white);
+      top: 20px;
+      right: 22px;
       cursor: pointer;
+      background: none;
+      border: none;
     }
 
     /* ===== HERO ===== */
@@ -348,9 +362,9 @@
         <a class="active" href="mitgliedwerden.html" aria-current="page">Mitglied werden</a>
         <a href="Kontakt.html">Kontakt</a>
       </nav>
-      <button class="burger" onclick="openMobileNav()" aria-label="Menü öffnen">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      <div class="burger" onclick="openMobileNav()" aria-label="Menü öffnen">
+        <div></div><div></div><div></div>
+      </div>
     </div>
   </header>
 
@@ -463,6 +477,7 @@
   </script>
 </body>
 </html>
+
 
 
 
